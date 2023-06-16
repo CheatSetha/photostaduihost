@@ -1,4 +1,4 @@
-'use client'
+
 import moment from "moment"
 import {useTheme} from "next-themes"
 import Image from "next/image"
@@ -7,7 +7,25 @@ import {AiOutlineCloseCircle} from "react-icons/ai"
 import DataTable, {createTheme} from "react-data-table-component"
 import {AiOutlinePlusCircle} from "react-icons/ai"
 import DeleteIcon from "@/components/icon/DeleteIcon"
-import CKEditorComponent from "@/components/ckeditor/CKEditorComponent";
+
+// import CKEditorComponent from "./ckeditor/CKEditorComponent"
+export const CkEditorCompo = ({data,onChange})=>{
+    return (
+        <div>
+            {/* <CKEditor 
+          
+                editor={ClassicEditor}
+                data={data}
+                onChange={(event, editor) => {
+                    const newData = editor.getData();
+                    onChange(newData);
+                }} */}
+            {/* /> */}
+        </div>
+    );
+
+
+}
 
 export function TutorialDatatable() {
     //ckeditor section
@@ -223,10 +241,11 @@ export function TutorialDatatable() {
                             </div>
                         </form>
                         <div className={"z-50 h-[100vh]"}>
-                            <CKEditorComponent
+                            {/* <CKEditorComponent
                                 data={editorData}
                                 onChange={handleEditorChange}
-                            />
+                            /> */}
+                            <CkEditorCompo data={editorData} onChange={handleEditorChange}/>
                         </div>
                         {/* <div className="modal-action">
 

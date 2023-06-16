@@ -1,7 +1,8 @@
 "use client"
+import { TutorialDatatable } from "@/components/TutorialDatatable"
 import React from "react"
 
-import DataTableComponent from "@/components/TtrDataTable";
+
 
 export default function Page() {
     return (
@@ -25,8 +26,9 @@ export default function Page() {
             <section>
           
                 <div>
-                    {/*<TutorialDatatable /> */}
-                    {/* <DataTableComponent/> */}
+                    <TutorialDatatable />
+
+       
                 
                 </div>
             </section>
