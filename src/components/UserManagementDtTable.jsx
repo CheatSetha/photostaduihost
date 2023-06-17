@@ -1,4 +1,4 @@
-
+'use client'
 import moment from "moment"
 import {useTheme} from "next-themes"
 import Image from "next/image"
@@ -8,10 +8,58 @@ import DataTable, {createTheme} from "react-data-table-component"
 import {AiOutlinePlusCircle} from "react-icons/ai"
 import DeleteIcon from "@/components/icon/DeleteIcon"
 import usersData from "@/mockdata/users.json"
-
+import { ErrorMessage, Field, Form, Formik } from "formik"
+import * as Yup from "yup"
 
 
 export default function UserManagementTable () {
+
+    // formik 
+
+    const validationShcema = Yup.object({
+        // validate first_name
+        first_name: Yup.string()
+        .trim()
+        .required("First name is required")
+        .matches(/^\S+$/, "first name cannot spaces")
+        .matches(/^[a-zA-Z0-9 ]*$/, "First name cannot contain special characters"),
+         // validate last_name
+        last_name: Yup.string()
+        .trim()
+        .required("Last name is required")
+        .matches(/^\S+$/, "last name cannot spaces")
+        .matches(/^[a-zA-Z0-9 ]*$/, "Last name cannot contain special characters"),
+        // validate username
+         username: Yup.string()  
+        .trim()
+        .required("username is required")
+        .matches(/^\S+$/, "username cannot spaces")
+        .matches(/^[a-zA-Z0-9 ]*$/, "username cannot contain special characters"),
+        //validate email
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        // validate password
+        password: Yup.string()
+        .required('Password is required')
+        .matches(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+          'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character'
+        ),
+  
+    });
+    const initialValues = {
+        first_name: '',
+        last_name: '',
+        username: '',
+        email: '',
+        password: '',
+      };
+
+      const handleSubmit = (values, { setSubmitting }) => {
+        // Perform form submission logic here
+        console.log(values);
+        setSubmitting(false);
+      };
+    // end of formik
    
 const [users, setUsers] = useState(usersData)
     const [filterText, setFilterText] = useState("")
@@ -34,7 +82,7 @@ const [users, setUsers] = useState(usersData)
         // get user name
         const userName = selectedUser[0].first_name + " " + selectedUser[0].last_name
         // alert message with deleted user name
-        alert(`user ${userName} has been deleted successfully`)
+        alert(`${userName} has been deleted successfully`)
 
        setUsers(filteredData)
 
@@ -125,7 +173,7 @@ const [users, setUsers] = useState(usersData)
         }
 
         return (
-            <div className='flex justify-between flex-wrap w-full p-0 '>
+            <div className='flex  justify-between flex-wrap w-full  '>
                 <form className='flex items-center'>
                     <label
                         htmlFor='simple-search'
@@ -171,72 +219,154 @@ const [users, setUsers] = useState(usersData)
                 </button>
                 {/* You can open the modal using ID.showModal() method */}
                 {/* <button className="btn" onClick={()=>window.my_modal_4.showModal()}>open modal</button> */}
-                <dialog
-                    id='my_modal_4'
-                    className='modal'
-                >
-                    <form
-                        method='dialog'
-                        className='modal-box h-[100vh] overflow-auto w-11/12  max-w-5xl'
+                <dialog id="my_modal_4" className="modal">
+                    <form method="dialog" className="modal-box bg-white dark:bg-primary w-[80%] max-w-5xl">
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    <Formik 
+                    initialValues={initialValues} 
+                    validationSchema={validationShcema}
+                    onSubmit={handleSubmit}
                     >
-                        <button className='btn absolute  right-2 top-2  w-12 h-10 p-1 rounded-full text-center'>
-                            <AiOutlineCloseCircle className='text-2xl'/>
-                        </button>
-                        <h2 className='text-center text-2xl  text-light font-semibold'>
-                            Create Tutorial
-                        </h2>
-                        <p className='py-4'>CkEditor here down below</p>
-                        <form className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-                            <div className=' w-full'>
-                                <label
-                                    for='first_name'
-                                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                                >
-                                    Title
-                                </label>
-                                <input
-                                    type='text'
-                                    id='first_name'
-                                    className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                                    placeholder='John'
-                                    required
-                                />
-                            </div>
-                            <div className=' h-[43px] w-full'>
-                                <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
-                                    Thumbnail
-                                </label>
-                                <input
-                                    type='file'
-                                    className='file-input h-full  file-input-bordered w-full '
-                                    required
-                                />
-                            </div>
-                            <div className='md:mb-5 mb-2 md:col-span-2 w-full'>
-                                <label
-                                    for='first_name'
-                                    className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                                >
-                                    Description
-                                </label>
-                                <textarea
-                                    id='message'
-                                    rows='4'
-                                    className='block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                                    placeholder='Write your description here...'
-                                ></textarea>
-                            </div>
-                        </form>
-                        <div className={"z-50 h-[100vh]"}>
-                     
-                           
-                        </div>
-                        {/* <div className="modal-action">
+                               <Form>
+                                 <div className='className="grid gap-6 mb-6 md:grid-cols-2"'>
+                                    <div className='flex justify-between'>
+                                        {/* First name */}
+                                        <div className='pe-2 w-[49%]'>
+                                                        <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                                        First name
+                                                        </label>
+                                                        <Field
+                                                        type="text"
+                                                        id="first_name"
+                                                        name="first_name"
+                                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                        placeholder="John"
+                                                        />
+                                                        <ErrorMessage name="first_name" component="div" className="text-red-500" />
+                                        </div>
+                                        {/* Last name */}
+                                        <div className='ps-2 w-[49%]'>
+                                            <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                            Last name
+                                            </label>
+                                            <Field
+                                            type="text"
+                                            id="last_name"
+                                            name="last_name"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Doe"
+                                            required
+                                            />
+                                            <ErrorMessage name="last_name" component="div" className="text-red-500" />
+                                        </div>
+                                    </div>
+                                    {/* user name */}
+                                    <div>
+                                        <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                        Username
+                                        </label>
+                                        <Field
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="username"
+                                        required
+                                        />
+                                        <ErrorMessage name="username" component="div" className="text-red-500" />
+                                    </div>
+                                    {/* email */}
+                                    <div>
+                                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                        Email
+                                        </label>
+                                        <Field
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="email"
+                                        required
+                                        />
+                                        <ErrorMessage name="email" component="div" className="text-red-500" />
+                                    </div>
+                                    {/* password*/}
+                                    <div>
+                                        <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                        Password
+                                        </label>
+                                        <Field
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="password"
+                                        required
+                                        />
+                                        <ErrorMessage name="password" component="div" className="text-red-500" />
+                                    </div>
+                                     {/* user roles */}
+                                     <div className='flex flex-wrap'>
+                                        <div className="form-control p-3">
+                                            <label className="cursor-pointer flex items-center">
+                                            <input type="checkbox" className="checkbox checkbox-primary" />
+                                                <span >SUBSCRIBER</span> 
+                                            </label>
+                                        </div>
+                                        <div className="form-control p-3">
+                                            <label className="cursor-pointer flex items-center">
+                                            <input type="checkbox" className="checkbox checkbox-primary" />
 
-
-    </div> */}
+                                                <span >EDITOR</span> 
+                                            </label>
+                                        </div>
+                                        <div className="form-control p-3">
+                                            <label className="cursor-pointer flex items-center">
+                                            <input type="checkbox" className="checkbox checkbox-primary" />
+                                                <span >ADMIN</span> 
+                                            </label>
+                                        </div>
+                                        <div className="form-control p-3">
+                                            <label className="cursor-pointer flex items-center">
+                                            <input type="checkbox" className="checkbox checkbox-primary" />
+                                                <span >SUPERADMIN</span> 
+                                            </label>
+                                        </div>
+                                   
+                               
+                                    </div>
+                         
+                                    {/* {input image} */}
+                                    <div className="mb-6">
+                                        <label htmlFor="user_avatar" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                        Avatar
+                                        </label>
+                                        <Field
+                                            type="file"
+                                            id="user_avatar"
+                                            name="user_avatar"
+                                            className="file-input file-input-bordered file-input-primary w-full max-w-xs"
+                                            aria-describedby="user_avatar_help"
+                                     
+                                        />
+                                        <ErrorMessage name="user_avatar" component="div" className="text-red-500" />
+                                    </div>    
+                                   
+                                    <div className='flex justify-end'>
+                                            <button
+                                                type="submit"
+                                                // disabled={setSubmitting}
+                                                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                            >
+                                                Submit
+                                            </button>
+                                    </div>
+                                    </div>  
+                               </Form>
+                        </Formik>
                     </form>
-                </dialog>
+                  
+                    </dialog>
                 {/* end of modal */}
             </div>
         )
@@ -246,6 +376,7 @@ const [users, setUsers] = useState(usersData)
         headCells: {
             style: {
                 fontSize: "16px",
+            
             },
         },
         //set odd row background color to whitesmoke and even row to white

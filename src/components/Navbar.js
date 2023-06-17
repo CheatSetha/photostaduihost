@@ -74,23 +74,23 @@ const MainNavBar = () => {
 						</li>
 
 						<li>
-							<a
+							<Link href="/watermark"
 								className={
 									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
 								}
 							>
 								Watermark
-							</a>
+							</Link>
 						</li>
 
 						<li>
-							<a
+							<Link href={"/certificate"}
 								className={
 									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
 								}
 							>
 								Certificate
-							</a>
+							</Link>
 						</li>
 						<li>
 							<Link
@@ -192,11 +192,11 @@ const MainNavBar = () => {
 								</Link>
 							</li>
 							<li className={"dark:hover:text-white"}>
-								<a className={"dark:hover:text-white"}>Watermark</a>
+								<Link href={'/watermark'} className={"dark:hover:text-white"}>Watermark</Link>
 							</li>
 
 							<li className={"dark:hover:text-white"}>
-								<a className={"dark:hover:text-white"}>Certificate</a>
+								<Link href={'/certificate'} className={"dark:hover:text-white"}>Certificate</Link>
 							</li>
 							<li className={"dark:hover:text-white"}>
 								<Link

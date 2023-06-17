@@ -172,19 +172,19 @@ export function TutorialDatatable() {
 				{/* <button className="btn" onClick={()=>window.my_modal_4.showModal()}>open modal</button> */}
 				<dialog
 					id='my_modal_4'
-					className='modal'
+					className='modal '
 				>
 					<form
 						method='dialog'
-						className='modal-box h-[100vh] overflow-auto w-11/12  max-w-5xl'
+						className='modal-box dark:bg-secondary h-[100vh] overflow-auto w-11/12  max-w-5xl'
 					>
 						<button className='btn absolute  right-2 top-2  w-12 h-10 p-1 rounded-full text-center'>
 							<AiOutlineCloseCircle className='text-2xl' />
 						</button>
-						<h2 className='text-center text-2xl  text-light font-semibold'>
+						<h2 className='text-center text-2xl  text-light dark:text-white font-semibold'>
 							Create Tutorial
 						</h2>
-						<p className='py-4'>CkEditor here down below</p>
+			
 						<form className='grid grid-cols-1 md:grid-cols-2 gap-5'>
 							<div className=' w-full'>
 								<label
@@ -201,13 +201,13 @@ export function TutorialDatatable() {
 									required
 								/>
 							</div>
-							<div className=' h-[43px] w-full'>
+							<div className='  w-full'>
 								<label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
 									Thumbnail
 								</label>
 								<input
 									type='file'
-									className='file-input h-full  file-input-bordered w-full '
+									className='file-input h-[45px]  file-input-bordered w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 									required
 								/>
 							</div>

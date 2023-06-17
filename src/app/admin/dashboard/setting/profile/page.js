@@ -144,7 +144,7 @@ export default function Home() {
                 </ul>
             </div> */}
 				{/* breadcrumbs */}
-				<div className='text-sm breadcrumbs'>
+				<div className='text-sm mb-3 breadcrumbs'>
 					<ul className='font-extralight text-light dark:text-white'>
 						<li>
 							<Link href='/admin/dashboard'>Admin</Link>
@@ -164,7 +164,7 @@ export default function Home() {
 					<Form>
 						<div className='grid gap-6 mb-6 md:grid-cols-2'>
 							{/* user name */}
-							<div>
+							<div className='mb-3'>
 								<label
 									htmlFor='username'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -186,7 +186,7 @@ export default function Home() {
 								/>
 							</div>
 							{/* sex */}
-							<div>
+							<div className='mb-3'>
 								<label
 									htmlFor='gender'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -210,7 +210,7 @@ export default function Home() {
 								/>
 							</div>
 							{/* First name */}
-							<div>
+							<div className='mb-3'>
 								<label
 									htmlFor='first_name'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -231,7 +231,7 @@ export default function Home() {
 								/>
 							</div>
 							{/* Last name */}
-							<div>
+							<div className='mb-3'>
 								<label
 									htmlFor='last_name'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -253,7 +253,7 @@ export default function Home() {
 								/>
 							</div>
 							{/* phone number */}
-							<div className='mb-6'>
+							<div className='mb-3'>
 								<label
 									htmlFor='phone_number'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -274,7 +274,7 @@ export default function Home() {
 							</div>
 							{/* date */}
 							<div>
-								<div class='relative max-w-sm'>
+								<div class='relative mb-3 max-w-sm'>
 									<label
 										htmlFor='gender'
 										className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -312,7 +312,7 @@ export default function Home() {
 								/>
 							</div>
 							{/* address */}
-							<div className='mb-6'>
+							<div className='mb-3'>
 								<label
 									htmlFor='address'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -334,7 +334,7 @@ export default function Home() {
 								/>
 							</div>
 							{/* message */}
-							<div className='mb-6'>
+							<div className='mb-3'>
 								<label
 									htmlFor='biography'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -356,7 +356,7 @@ export default function Home() {
 								/>
 							</div>
 							{/* user_avatar */}
-							<div className='mb-6'>
+							<div className='mb-3'>
 								<label
 									htmlFor='user_avatar'
 									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
@@ -367,7 +367,7 @@ export default function Home() {
 									type='file'
 									id='user_avatar'
 									name='user_avatar'
-									className='file-input file-input-bordered file-input-primary w-full max-w-xs'
+									className='file-input file-input-bordered file-input-primary h-[45px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 									aria-describedby='user_avatar_help'
 									onChange={handleFileChange}
 								/>

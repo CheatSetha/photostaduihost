@@ -19,7 +19,7 @@ export default function Page() {
 				Tutorial Management
 			</h1>
 			{/* breadcrumbs */}
-			<div className='text-sm breadcrumbs'>
+			<div className='text-sm breadcrumbs mb-3'>
 				<ul className='font-extralight text-light dark:text-white'>
 					<li>
 						<Link href={"/admin/dashboard"}>Admin</Link>

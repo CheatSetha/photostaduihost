@@ -10,7 +10,7 @@ export default function page() {
 				Tutorial Management
 			</h1>
 			{/* breadcrumbs */}
-			<div className='text-sm breadcrumbs'>
+			<div className='text-sm mb-3 breadcrumbs'>
 			<ul className='font-extralight text-light dark:text-white'>
 					<li>
 						<Link href={"/admin/dashboard"}>Admin</Link>
@@ -45,36 +45,7 @@ export default function page() {
 								required
 							/>
 						</div>
-						<div className='mb-5'>
-							<label
-								for='first_name'
-								class='block mb-2 text-sm font-medium text-light dark:text-white'
-							>
-								Author
-							</label>
-							<input
-								type='text'
-								id='first_name'
-								class='bg-white border border-gray-300 text-light text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-								placeholder='photostad'
-								required
-							/>
-						</div>
-						<div className='mb-5'>
-							<label
-								for='first_name'
-								class='block mb-2 text-sm font-medium text-light dark:text-white'
-							>
-								Descriptoin
-							</label>
-							<input
-								type='text'
-								id='first_name'
-								class='bg-white border border-gray-300 text-light text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-								placeholder='photostad'
-								required
-							/>
-						</div>
+					
 						<div className='mb-5'>
 							<label
 								for='first_name'
@@ -99,7 +70,7 @@ export default function page() {
 							</label>
 							<input
 								type='file'
-								className='file-input file-input-bordered w-full p2.5 h-[45px] border-gray-300 rounded-main focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+								className='file-input  w-full p2.5 h-[45px] border-gray-300 rounded-main focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 							/>
 						</div>
 					</div>

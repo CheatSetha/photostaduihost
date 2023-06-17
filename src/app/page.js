@@ -232,7 +232,7 @@ const toggleText_one = () => {
 				lightBackground + 
 				darkBACKGROUND + 
 				"xl:w-[1290px] "}>
-				<h1 className='text-center pb-14 text-5xl font-bold text-[24px] dark:text-slate-300 text-slate-950'>
+				<h1 className='text-center pb-14 text-5xl font-bold  dark:text-slate-300 text-slate-950'>
 					FAQ
 				</h1>
 				<div className='w-[90%] space-y-5 mx-auto '>
@@ -357,7 +357,7 @@ const toggleText_one = () => {
 				</div>
 			</section >
 				{/* tutuorial req */}
-			<section className="xl:w-[1290px] w-full px-5  ">
+			<section className="xl:w-[1290px] w-full px-5 mb-5  ">
 				<h1 className='text-center max-sm:text-[24px] pb-14  text-5xl font-bold dark:text-slate-300 text-slate-950'>
 					Tutorials Request
 				</h1>

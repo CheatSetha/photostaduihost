@@ -148,9 +148,9 @@ export default function page() {
                                 <h1 className='text-xl font-bold'> Traffic by Website</h1>
                                 <div className='flex mt-4'>
                                     <div className='ml-5 '>
-                                        <h1>Google <progress className="progress progress-secondary w-56 ml-5 max-sm:w-44" value="90" max="100" ></progress> </h1>
-                                        <h1>YouTube <progress className="progress progress-info w-56 ml-3 max-sm:w-44 max-sm:ml-2" value="70" max="100"> </progress> </h1>
-                                        <h1>Bing <progress className="progress progress-primary w-56 ml-10 max-sm:w-44 " value="40" max="100"></progress></h1>
+                                        <h1>Google <progress className="progress progress-secondary w-56 ml-5 md:w-44" value="90" max="100" ></progress> </h1>
+                                        <h1>YouTube <progress className="progress progress-info w-56 ml-3 md:w-44 max-sm:ml-2" value="70" max="100"> </progress> </h1>
+                                        <h1>Bing <progress className="progress progress-primary w-56 ml-10 md:w-44 " value="40" max="100"></progress></h1>
                                     </div>
                                 </div>
                             </div>

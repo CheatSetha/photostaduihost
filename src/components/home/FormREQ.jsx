@@ -75,11 +75,11 @@ export default function FormREQ() {
                     className="shadow-sm rounded-[16px] w-full  h-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                 />
             </div>
-            <div className="w-full flex justify-end lg:w-[800px] xl:w-[1069px]">
+            <div className="w-full flex justify-end   ">
                 <button
                     type="submit"
                     disabled={submitting}
-                    className="bg-red-500 p-2.5 w-full md:w-fit text-white rounded-[16px] px-7"
+                    className="bg-red-500 p-2.5 w-full md:w-fit text-white rounded-main px-7"
                 >
                     Send
                 </button>
