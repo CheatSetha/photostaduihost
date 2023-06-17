@@ -28,7 +28,7 @@ export default function page() {
 			</h1>
 
 			<form>
-				<div class='grid gap-6 p-5 mb-6 grid-cols-1 md:grid-cols-2'>
+				<div class='grid gap-6 p-5 mb-6 grid-cols-1 h-screen md:grid-cols-2'>
 					<div>
 						<div className='mb-5'>
 							<label

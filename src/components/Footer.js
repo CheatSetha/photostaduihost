@@ -33,7 +33,7 @@ const MainFooter = () => {
                     className='footer dark:bg-[#1e1e1e] dark:text-white place-items-center md:flex md:px-5 md:justify-between md:items-start text-center md:text-start py-10 bg-white text-base-content w-full xl:w-[1290px] mx-auto '>
 
                     <div className='place-items-center  md:place-items-start'>
-                        <p className='font-bold text-3xl mb-5 '>PhotoStad</p>
+                        <p className='font-bold text-black dark:text-white text-3xl mb-5 '>PhotoStad</p>
 
                         <Link href={"/"}>
                             {theme === "light" ? (

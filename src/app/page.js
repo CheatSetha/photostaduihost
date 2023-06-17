@@ -84,7 +84,7 @@ const toggleText_one = () => {
 				}
 			>
 				<div className=' max-sm:p-0'>
-					<h1 className='text-center pb-14 text-5xl font-bold dark:text-slate-300 text-slate-950 max-sm:text-[24px]'>
+					<h1 className='text-center pb-14 text-5xl font-bold dark:text-white text-slate-950 max-sm:text-[24px]'>
 						Our Service
 					</h1>
 					<div className='flex flex-wrap  max-sm:flex-col justify-between'>

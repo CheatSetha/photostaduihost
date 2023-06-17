@@ -7,7 +7,7 @@ import BarChart from '@/components/BarChart'
 import Link from 'next/link'
 export default function page() {
     return (
-        <div className=' db-bg dark:bg-primary  rounded-md shadow'>
+        <div className=' db-bg xl:h-screen dark:bg-primary  rounded-md shadow'>
             <main>
                 <div className='mt-5 ml-7'>
                     <h1 className='text-[32px] font-semibold dark:text-white mb-5'>Dashboard Overview</h1>

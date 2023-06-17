@@ -61,7 +61,9 @@ export default function Page() {
 					<span className='text-red-600'>done</span> &#41;{" "}
 				</h1>
 				{/* react data table component */}
+				<div className="h-screen">
 				<DataTblReadedReq />
+				</div>
 			</main>
 		</div>
 	)

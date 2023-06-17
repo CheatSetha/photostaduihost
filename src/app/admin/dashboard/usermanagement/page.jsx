@@ -26,7 +26,7 @@ export default function Page() {
 				</ul>
 			</div>
 			<section>
-				<div>
+				<div className="h-screen">
 					<UserManagementTable />
 				</div>
 			</section>

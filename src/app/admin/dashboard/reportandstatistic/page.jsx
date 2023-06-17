@@ -24,7 +24,7 @@ export const Page = () => {
 			</div>
 			{/* end of header section */}
 
-			<div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+			<div className='grid grid-cols-1 h-screen md:grid-cols-4 gap-4'>
 				{/*box 1*/}
 				<div
 					className={

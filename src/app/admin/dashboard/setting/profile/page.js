@@ -162,7 +162,7 @@ export default function Home() {
 					onSubmit={handleSubmit}
 				>
 					<Form>
-						<div className='grid gap-6 mb-6 md:grid-cols-2'>
+						<div className='grid gap-6 h-screen mb-6 md:grid-cols-2'>
 							{/* user name */}
 							<div className='mb-3'>
 								<label
