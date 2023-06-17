@@ -131,20 +131,30 @@ export default function Home() {
 	}
 
 	return (
-		<>
-			<section className='h-screen p-5'>
-				<h1 className='text-[#222] text-[32px] '>Profile</h1>
+		<div className='db-bg dark:bg-primary'>
+			<section className='h-full p-5'>
+				<h1 className='text-[32px] text-light dark:text-white font-semibold mb-5'>
+					Profile
+				</h1>
+				{/* <div className="text-sm breadcrumbs dark:text-white pb-5">
+                <ul>
+                    <li><Link href={"/#"}>Admin</Link></li>
+                    <li><Link href={"/admin/dashboard/setting/profile"}>Setting</Link></li>
+                    <li>Passowrd</li>
+                </ul>
+            </div> */}
+				{/* breadcrumbs */}
 				<div className='text-sm breadcrumbs'>
-					<ul>
+					<ul className='font-extralight text-light dark:text-white'>
 						<li>
-							<Link href={"/admin/dashboard"}>Admin</Link>
+							<Link href='/admin/dashboard'>Admin</Link>
 						</li>
 						<li>
 							<Link href={"/admin/dashboard/setting/profile"}>Setting</Link>
 						</li>
-						<li>profile</li>
 					</ul>
 				</div>
+				{/* end of header section */}
 
 				<Formik
 					initialValues={initialValues}
@@ -381,17 +391,17 @@ export default function Home() {
 									className='mt-2 rounded-md max-w-xs'
 								/>
 							)}
-							<button
-								type='submit'
-								disabled={setSubmitting}
-								className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-							>
-								Submit
-							</button>
 						</div>
+						<button
+							type='submit'
+							disabled={setSubmitting}
+							className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+						>
+							Submit
+						</button>
 					</Form>
 				</Formik>
 			</section>
-		</>
+		</div>
 	)
 }

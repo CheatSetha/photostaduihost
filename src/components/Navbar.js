@@ -102,6 +102,16 @@ const MainNavBar = () => {
 								About Us
 							</Link>
 						</li>
+						<li>
+							<Link
+								className={
+									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
+								}
+								href={"/admin/dashboard"}
+							>
+								Dashboard
+							</Link>
+						</li>
 					</ul>
 				</div>
 				<div className='navbar-end '>
@@ -128,7 +138,7 @@ const MainNavBar = () => {
 								className='mt-3 dark:text-white dark:bg-slate-800 space-y-2  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52'
 							>
 								<li className='dark:hover:bg-slate-400 '>
-									<a className='justify-between'>{session.user.name}</a>
+									<Link href={'/profile/setting'} className='justify-between'>{session.user.name}</Link>
 								</li>
 								<li className='dark:hover:bg-slate-400 rounded-sm'>
 									<Link href={"/profile/setting"}>Settings</Link>
@@ -196,6 +206,16 @@ const MainNavBar = () => {
 									About Us
 								</Link>
 							</li>
+							<li>
+							<Link
+								className={
+									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
+								}
+								href={"/admin/dashboard"}
+							>
+								Dashboard
+							</Link>
+						</li>
 							{session ? (
 								<li className={"dark:hover:text-white"}>
 									<Link

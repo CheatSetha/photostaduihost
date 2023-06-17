@@ -1,9 +1,14 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 import SettingIcon from "./icon/SettingIcon"
+import { useTheme } from "next-themes"
 
 export default function SettingNavMenu() {
+    // call theme   
+    const {theme} = useTheme()
+    console.log(theme);
     return (
         <div className='w-[318px] max-sm:hidden  dark:bg-slate-800 dark:text-white bg-white rounded-[16px]  p-3'>
             <h3 className='text-base s'>
@@ -39,7 +44,7 @@ export default function SettingNavMenu() {
                                 <Link className=""
                                       href={'/profile/setting/generalsetting'}>
                                    
-                                   <SettingIcon  stroke={'black'}/> <span className="inline ml-2.5"> General setting</span>
+                                   <SettingIcon  stroke={theme === 'dark'?'white': 'black'}/> <span className="inline ml-2.5"> General setting</span>
                                 
                                 </Link>
                             </summary>

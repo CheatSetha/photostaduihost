@@ -68,7 +68,7 @@ export default function Layout({children}) {
             {/* side ba */}
             <aside
                 id='default-sidebar'
-                className={`fixed  top-0 left-0 z-50 w-64 h-screen transition-transform ${
+                className={`fixed  top-0 left-0 z-50 w-[300px] h-screen transition-transform ${
                     isOpen ? "" : "-translate-x-full "
                 } sm:translate-x-0`}
                 aria-label='Sidebar'
@@ -105,7 +105,7 @@ export default function Layout({children}) {
                         </li>
                         <li>
                             <Link
-                                href={"/admin/dashboard/user-management"}
+                                href={"/admin/dashboard/usermanagement"}
                                 className='flex items-center mb-6 p-2 text-white rounded-lg dark:text-white hover:bg-secondary  dark:hover:bg-gray-700'
                             >
                                 <Image
@@ -292,7 +292,7 @@ export default function Layout({children}) {
                 </div>
             </nav>
             {/* children display */}
-            <div className=' sm:ml-64'>{children}</div>
+            <div className=' sm:ml-[300px]'>{children}</div>
 
             <Script
                 strategy={"beforeInteractive"}

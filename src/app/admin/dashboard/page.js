@@ -4,6 +4,7 @@ import { FcEditImage } from 'react-icons/fc'
 import { FiUsers } from 'react-icons/fi'
 import { AiOutlineRise } from 'react-icons/ai'
 import BarChart from '@/components/BarChart'
+import Link from 'next/link'
 export default function page() {
     return (
         <div className=' db-bg dark:bg-primary  rounded-md shadow'>
@@ -12,8 +13,8 @@ export default function page() {
                     <h1 className='text-[32px] font-semibold dark:text-white mb-5'>Dashboard Overview</h1>
                     <div className="text-[14px]  font-extralight text-gray-900 breadcrumbs dark:text-white">
                         <ul>
-                            <li><a>Admin</a></li>
-                            <li><a>dashboard overview</a></li>
+                            <li><Link href={'/admin/dashboard'}>Admin</Link></li>
+                            <li><Link href={'/admin/dashboard'}>dashboard overview</Link></li>
                         </ul>
                     </div>
                 </div>
