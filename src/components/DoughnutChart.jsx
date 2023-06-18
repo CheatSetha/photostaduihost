@@ -30,7 +30,7 @@ export const data = {
 };
 
 export function DoughnutChart() {
-    return <div className='xl:max-w-[250px]'>
+    return <div className='w-[250px] '>
         <Doughnut data={data}/>
     </div>;
 }

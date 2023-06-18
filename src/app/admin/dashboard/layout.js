@@ -68,8 +68,8 @@ export default function Layout({ children }) {
 			{/* side ba */}
 			<aside
 				id='default-sidebar'
-				className={`fixed   top-0 left-0 z-50 w-[300px] h-screen transition-transform ${
-					isOpen ? "" : "-translate-x-full "
+				className={`fixed   top-0 left-0 z-50 w-[300px]  h-screen transition-transform ${
+					isOpen ? "" : "-translate-x-full"
 				} sm:translate-x-0`}
 				aria-label='Sidebar'
 			>
@@ -288,7 +288,7 @@ export default function Layout({ children }) {
 				</div>
 			</nav>
 			{/* children display */}
-			<div className=' sm:ml-[300px]'>{children}</div>
+			<div className='sm:ml-[300px]'>{children}</div>
 
 			<Script
 				strategy={"beforeInteractive"}

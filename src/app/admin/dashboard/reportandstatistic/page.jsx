@@ -24,7 +24,7 @@ export const Page = () => {
 			</div>
 			{/* end of header section */}
 
-			<div className='grid grid-cols-1 h-screen md:grid-cols-4 gap-4'>
+			<div className='grid grid-cols-1 xl:h-screen lg:grid-cols-4 gap-4'>
 				{/*box 1*/}
 				<div
 					className={
@@ -41,7 +41,7 @@ export const Page = () => {
 				{/*box 2*/}
 				<div
 					className={
-						"bg-white shadow-sm dark:bg-secondary col-span-1  md:col-span-2  flex mainround h-[168px] justify-around items-center "
+						"bg-white shadow-sm dark:bg-secondary col-span-1  lg:col-span-2  flex mainround h-[168px] justify-around items-center "
 					}
 				>
 					<div>
@@ -97,7 +97,7 @@ export const Page = () => {
 				{/*box 4*/}
 				<div
 					className={
-						"bg-white shadow-sm dark:bg-secondary  md:col-span-3 row-span-2 flex flex-col mainround h-[350px]  justify-center items-center "
+						"bg-white shadow-sm dark:bg-secondary  lg:col-span-3 row-span-2 flex flex-col mainround h-[350px]  justify-center items-center "
 					}
 				>
 					{/*<p className={'font-extralight'}>*/}
@@ -145,7 +145,7 @@ export const Page = () => {
 				{/*box 7*/}
 				<div
 					className={
-						"bg-white dark:bg-secondary shadow-sm flex flex-col md:col-start-4 md:col-end-4   mainround  justify-center items-center h-[168px]"
+						"bg-white dark:bg-secondary shadow-sm flex flex-col lg:col-start-4 lg:col-end-4   mainround  justify-center items-center h-[168px]"
 					}
 				>
 					<p className={"font-extralight text-light dark:text-dark"}>

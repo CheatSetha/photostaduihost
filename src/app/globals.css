@@ -25,6 +25,18 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+/* for dark theme */
+[data-theme="light"]
+    {
+    background-color: white;
+}
+
+[data-theme="dark"] {
+   background-color: black;
+}
+
+
+
 
 body {
     color: #1e1e1e;
