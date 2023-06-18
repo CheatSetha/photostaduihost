@@ -50,11 +50,11 @@ const toggleText_one = () => {
 					"xl:w-[1290px] flex  justify-between pt-14 max-sm:px-5 max-sm:pt-7 md:px-5 max-md:px-5"
 				}
 			>
-				<div className='pt-16 ps-5 max-sm:pt-4'>
+				<div className='pt-16  ps-5 max-sm:pt-4'>
 					<h3 className='font-bold leading-relaxed tracking-wider  text-[#222] dark:text-[#ffff] pb-5 max-sm:hidden max-sm:pb-5'>
 						GET YOUR DESIGNS NOW
 					</h3>
-					<h1 className='pb-5 font-extrabold text-5xl leading-11 text-[#222] dark:text-[#ffff] max-sm:text-[20px]  max-sm:py-5 max-md:text-[30px] md:text-[40px] '>
+					<h1 className='pb-5 font-extrabold text-5xl leading-11 max-sm:leading-normal text-[#222] dark:text-[#ffff] max-sm:text-[16px] max-sm:  max-sm:py-5 max-md:text-[30px] md:text-[40px] '>
 						Better Solution For Your Designs Watermark And Generate Certificate
 					</h1>
 					<p className='pb-5 text-[#222] dark:text-[#fff] max-sm:hidden max-md:hidden'>
