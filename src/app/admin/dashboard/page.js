@@ -7,7 +7,7 @@ import BarChart from '@/components/BarChart'
 import Link from 'next/link'
 export default function page() {
     return (
-        <div className=' db-bg xl:h-screen dark:bg-primary  rounded-md shadow'>
+        <div className=' db-bg h-full  dark:bg-primary  rounded-md shadow'>
             <main>
                 <div className='mt-5 ml-7'>
                     <h1 className='text-[32px] font-semibold dark:text-white mb-5'>Dashboard Overview</h1>
@@ -148,9 +148,9 @@ export default function page() {
                                 <h1 className='text-xl font-bold'> Traffic by Website</h1>
                                 <div className='flex mt-4'>
                                     <div className='ml-5 '>
-                                        <h1>Google <progress className="progress progress-secondary w-56 ml-5 md:w-44" value="90" max="100" ></progress> </h1>
-                                        <h1>YouTube <progress className="progress progress-info w-56 ml-3 md:w-44 max-sm:ml-2" value="70" max="100"> </progress> </h1>
-                                        <h1>Bing <progress className="progress progress-primary w-56 ml-10 md:w-44 " value="40" max="100"></progress></h1>
+                                        <h1>Google <progress className="progress progress-secondary w-56 ml-5 md:w-[100px]" value="90" max="100" ></progress> </h1>
+                                        <h1>YouTube <progress className="progress progress-info w-56 ml-3 md:w-[100px] max-sm:ml-2" value="70" max="100"> </progress> </h1>
+                                        <h1>Bing <progress className="progress progress-primary w-56 ml-10 md:w-[100px] " value="40" max="100"></progress></h1>
                                     </div>
                                 </div>
                             </div>

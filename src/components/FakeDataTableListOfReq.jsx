@@ -155,7 +155,8 @@ const FakeDataTable = () => {
 	]
 
 	return (
-		<DataTable
+		<div className="h-screen">
+			<DataTable
 			columns={columns}
 			data={data}
             pagination
@@ -164,6 +165,7 @@ const FakeDataTable = () => {
 				themeColor.theme === "dark" ? customeStyleDark : customeStylesLight
 			}
 		/>
+		</div>
 	)
 }
 

@@ -61,7 +61,7 @@ export default function Page() {
 					</div>
 				</div>
 
-        <h1 className="font-semibold text-center text-[24px] h-screen my-14 dark:text-white">List of Requests Tutorial</h1>
+        <h1 className="font-semibold text-center text-[24px]  my-14 dark:text-white">List of Requests Tutorial</h1>
         {/* react data table component */}
         <FakeDataTable />
 			</main>

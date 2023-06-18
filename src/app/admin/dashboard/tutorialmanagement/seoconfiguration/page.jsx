@@ -27,8 +27,8 @@ export default function page() {
 				Search Engine Optimization
 			</h1>
 
-			<form>
-				<div class='grid gap-6 p-5 mb-6 grid-cols-1 h-screen md:grid-cols-2'>
+			<form className="h-screen">
+				<div class='grid gap-6 p-5 mb-6 grid-cols-1  md:grid-cols-2'>
 					<div>
 						<div className='mb-5'>
 							<label
