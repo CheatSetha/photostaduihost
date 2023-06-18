@@ -102,7 +102,7 @@ const Page = () => {
                             <div className="flex max-sm:justify-center max-sm:m-auto ">
                                 <img
                                     className="lg:w-[277px] lg:h-[277px] md:w-[270px] md:h-[250px] max-sm:w-[250px] max-sm:h-[250px]  object-cover  rounded-full  "
-                                    src="/assets/image/Cheat Setha.jpg" alt="Modern building architecture"/>
+                                    src="/assets/image/setha.png" alt="Modern building architecture"/>
                             </div>
                             <div
                                 className='max-sm:m-3 max-sm:flex max-sm:justify-center md:mx-auto md:rounded-l-none md:shadow-md md:w-[70%]'>
