@@ -129,7 +129,7 @@ export default function page() {
 					<BarChart />
 					<div className='flex  max-sm:mt-4 lg:mt-0 lg:ml-5 lg:w-[390px] md:flex-wrap flex-col md:mt-4 max-md:w-[700px] max-lg:w-full '>
 						{/* start Recent Activity */}
-						<div className='col-span-1 bg-white flex justify-between  p-4 rounded-lg dark:bg-secondary'>
+						{/* <div className='col-span-1 bg-white flex justify-between  p-4 rounded-lg dark:bg-secondary'>
 							<div className='flex flex-col'>
 								<h1 className='text-xl font-bold  dark:text-white'>
 									{" "}
@@ -189,8 +189,8 @@ export default function page() {
 									</div>
 								</div>
 							</div>
-							{/* end Recent Activity */}
-						</div>
+							
+						</div> */}
 						{/* start Traffic by Website  */}
 						<div className='col-span-1 bg-white dark:bg-secondary flex justify-between w-full p-4 rounded-lg mt-4'>
 							<div className='flex flex-col w-full pb-4 dark:text-white'>

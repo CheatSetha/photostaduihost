@@ -252,7 +252,7 @@ export default function Home() {
 				<div className='w-[90%] space-y-5 mx-auto '>
 					<div
 						tabIndex={0}
-						className={"collapse w-fullmb-3 collapse-arrow"}
+						className={"collapse w-fullmb-3 collapse-open collapse-arrow"}
 					>
 						<div
 							className={
