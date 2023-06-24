@@ -19,16 +19,6 @@ const DataTblReadedReq = () => {
         setData(updatedData)
     }
 
-    // const handleMarkAsRead = (id) => {
-    // 	const updatedData = data.map((item) => {
-    // 		if (item.id === id) {
-    // 			return { ...item, isRead: true }
-    // 		}
-    // 		return item
-    // 	})
-    // 	setData(updatedData)
-    // }
-    // react data table component
     createTheme("light", {
         text: {
             light: "#1b254b",
@@ -129,8 +119,8 @@ const DataTblReadedReq = () => {
                         onClick={() => handleDelete(row.id)}>
                         <Image
                             src={"/assets/icons/trush-square.svg"}
-                            width={25}
-                            height={25}
+                            width={23}
+                            height={23}
                             alt='delete icon'
 
                         />

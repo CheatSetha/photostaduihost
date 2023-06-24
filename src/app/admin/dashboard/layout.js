@@ -68,7 +68,7 @@ export default function Layout({ children }) {
 			{/* side ba */}
 			<aside
 				id='default-sidebar'
-				className={`fixed   top-0 left-0 z-50 w-[300px]  h-screen transition-transform ${
+				className={`fixed   top-0 left-0 z-50  w-[300px]  h-screen transition-transform ${
 					isOpen ? "" : "-translate-x-full"
 				} sm:translate-x-0`}
 				aria-label='Sidebar'
@@ -264,7 +264,7 @@ export default function Layout({ children }) {
 			{/* nav bar */}
 
 			<nav className='sticky top-0 z-40 '>
-				<div className='flex items-center justify-between h-16 px-6 py-10 backdrop-blur-sm border-gray-200  '>
+				<div className='flex items-center justify-between h-16 px-6 py-10 db-bg dark:bg-primary border-gray-200  '>
 					<div className='flex items-center'>
 						<button
 							className='text-gray-500 rounded-md dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 lg:hidden'

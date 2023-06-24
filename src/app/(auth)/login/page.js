@@ -6,6 +6,8 @@ import {FcGoogle} from "react-icons/fc"
 import {signIn, signOut, useSession} from "next-auth/react"
 import {useRouter} from "next/navigation"
 import Image from "next/image"
+import { useTheme } from "next-themes"
+import Link from "next/link"
 
 const validationShcema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Required"),
@@ -23,6 +25,7 @@ const handleSubmit = (values) => {
 
 // test auth
 const Page = () => {
+    const {theme} =useTheme()
     const {data: session} = useSession()
     const router = useRouter()
     // check if log in success redirect to home page
@@ -36,10 +39,13 @@ const Page = () => {
             <div className='w-1/2 hidden md:flex justify-center items-center '>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                    className='w-96  motion-safe:animate-bounce-slow flex animate-ping'
+                    className='w-96  flex'
                     //
                     // src={desinger}
-                    src={"./assets/image/Signup-pana.png"}
+                    // src={"./assets/image/Signup-pana.png"}
+                    src={`./assets/image/auth/${
+						theme === "dark" ? "Designer-dark" : "Designer"
+					}.gif`}
                     alt='sign up logo'
                 />
             </div>
@@ -50,7 +56,7 @@ const Page = () => {
                     validationSchema={validationShcema}
                 >
                     <div className='form-container w-[90%]  xl:w-[600px] mx-auto  border p-10 rounded-[16px]'>
-                        {/* <Image className="mx-auto py-5 max-sm:pb-6" width={170} height={100} src={'/assets/image/mainlogov2.png'} alt="logo photo"/> */}
+                        <Image className="mx-auto pt-5 pb-10 max-sm:pb-6" width={170} height={100} src={`/assets/image/${theme==='dark'?'mainlogov2':'mainlogo-blackv2'}.png`} alt="logo photo"/>
                         <h1 className='font-bold text-2xl mb-5 dark:text-white max-sm:text-center'>Log In</h1>
                         <div>
                             <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
@@ -103,7 +109,7 @@ const Page = () => {
                         </button>
                         <small className='justify-end flex mt-10 dark:text-white mr-2'>
                             forgot password ? {" "}
-                            <span className='text-[#E85854] cursor-pointer'>click  here</span>{" "}
+                            <span className='text-[#E85854] cursor-pointer'><Link href={"/sendemail"}>click  here</Link>  </span>{" "}
                         </small>
                     </div>
 

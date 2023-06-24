@@ -65,7 +65,7 @@ const MainNavBar = () => {
 						<li>
 							<Link
 								className={
-									" hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white "
+									"nav-item hover:bg-black hover:text-white hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
 								href={"/ "}
 							>
@@ -76,7 +76,7 @@ const MainNavBar = () => {
 						<li>
 							<Link href="https://photostad-editor.vercel.app"
 								className={
-									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
+									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
 							>
 								Watermark
@@ -86,7 +86,7 @@ const MainNavBar = () => {
 						<li>
 							<Link href={"/certificate"}
 								className={
-									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
+									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
 							>
 								Certificate
@@ -95,7 +95,7 @@ const MainNavBar = () => {
 						<li>
 							<Link
 								className={
-									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
+									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
 								href={"/aboutus"}
 							>
@@ -105,7 +105,7 @@ const MainNavBar = () => {
 						<li>
 							<Link
 								className={
-									"hover:dark:text-black hover:dark:bg-gray-100 dark:focus:bg-white"
+									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
 								href={"/admin/dashboard"}
 							>

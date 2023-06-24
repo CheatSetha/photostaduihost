@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -151,3 +152,16 @@ input:checked + .slider:before {
 
 /* ============ | end of Dashboard |=============== */
 /* animation fade in fade out fade up fade down */
+
+
+/* fix navbar */
+/* .nav-item:hover {
+    background-color: white !important;
+
+} */
+.nav-item:focus {
+    background-color: transparent !important;
+
+}
+
+/* reset password email input */

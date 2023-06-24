@@ -246,7 +246,7 @@ export default function Home() {
 					paddingSection + lightBackground + darkBACKGROUND + "xl:w-[1290px] "
 				}
 			>
-				<h1 className='text-center pb-14 text-5xl font-bold  dark:text-slate-300 text-slate-950'>
+				<h1 className='text-center pb-14 text-5xl font-bold  dark:text-white text-slate-950'>
 					FAQ
 				</h1>
 				<div className='w-[90%] space-y-5 mx-auto '>
@@ -383,7 +383,7 @@ export default function Home() {
 			</section>
 			{/* tutuorial req */}
 			<section className='xl:w-[1290px] w-full px-5 mb-5  '>
-				<h1 className='text-center max-sm:text-[24px] pb-14  text-5xl font-bold dark:text-slate-300 text-slate-950'>
+				<h1 className='text-center max-sm:text-[24px] pb-14  text-5xl font-bold dark:text-white text-slate-950'>
 					Tutorials Request
 				</h1>
 				<FormREQ />

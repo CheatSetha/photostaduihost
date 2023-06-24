@@ -8,20 +8,16 @@ import {TbSend} from 'react-icons/tb'
 
 
 const Page = () => {
-    useEffect(() => {
-        Aos.init()
-    }, [])
-
 
     return (
 
         <div className='dark:bg-black  '>
 
-            <div className='flex pt-10 px-5 justify-between flex-wrap mx-auto w-full xl:w-[1290px] '>
+            <div className='flex pt-20 px-5 justify-between flex-wrap mx-auto w-full xl:w-[1290px] '>
                 {/* title about */}
                 <div className='title-about w-[90%]   mb-5 space-y-3 md:space-y-6 lg:space-y-12 md:w-1/2'>
                     <h1 className=' title-about-1 lg:text-[40px] text-2xl md:text-[30px] font-medium dark:text-white '>ABOUT</h1>
-                    <h1 className='title-about-2 text-3xl lg:text-[80px] xl:my-10 md:text-[50px] font-black text-red-600'> PHOTOSTAD</h1>
+                    <h1 className='title-about-2 text-3xl lg:text-[80px] xl:my-10 md:text-[50px] font-black text-[#e85854]'> PHOTOSTAD</h1>
                     {/* description */}
                     <p className=' lg:text-[20px] max-sm:line-clamp-3  text md:text-[16px] dark:text-white '>
                         With our easy-to-use watermark maker and certificate <br/>
@@ -302,7 +298,7 @@ const Page = () => {
             </main>
 
             {/*/!* CONTACT US *!/*/}
-            <div className='md:mt-[200px] mt-24  w-[90%] mx-auto max-sm:p-3   '>
+            <div className='md:mt-[200px] pb-10 mt-24  w-[90%] mx-auto max-sm:p-3   '>
 
                 <h1 className='text-center text-[36px] font-black dark:text-white'>CONTACT US</h1>
 

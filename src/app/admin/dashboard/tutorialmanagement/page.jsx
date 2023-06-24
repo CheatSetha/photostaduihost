@@ -7,7 +7,8 @@ import React from "react"
 export default function Page() {
     return (
         <div className={"w-full p-5 mx-auto db-bg h-full  dark:bg-primary"}>
-            <h1
+           <div className="db-bg dark:bg-primary sticky top-20 z-50" >
+           <h1
                 className={"text-[32px] text-light dark:text-white font-semibold mb-5"}
             >
                 Tutorial Management
@@ -23,6 +24,7 @@ export default function Page() {
                     </li>
                 </ul>
             </div>
+           </div>
             <section>
           
                 <div className="h-full xl:h-screen">

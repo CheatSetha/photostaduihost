@@ -60,36 +60,36 @@ const MainFooter = () => {
                     </div>
                     <div className='place-items-center md:place-items-start'>
                         <div className='font-bold text-black dark:text-white'>PRODUCTS</div>
-                        <a className='link link-hover '>Home</a>
-                        <a className='link link-hover '>Setting</a>
-                        <a className='link link-hover'>Contact Us</a>
-                        <a className='link link-hover'>About Us</a>
+                        <Link href={'/'} className='link link-hover '>Home</Link>
+                        <Link href={'/profile/setting'} className='link link-hover '>Setting</Link>
+                        
+                        <Link href={'/aboutus'} className='link link-hover'>About Us</Link>
                     </div>
                     <div className='place-items-center md:place-items-start'>
 					<span className='font-bold text-black dark:text-white'>
 						USEFUL LINKS
 					</span>
-                        <a className='link link-hover'>Certificate</a>
-                        <a className='link link-hover'>Watermark</a>
-                        <a className='link link-hover'>Account</a>
+                        <Link href={'https://photostad-editor.vercel.app/'} className='link link-hover'>Certificate</Link>
+                        <Link href={'https://photostad-editor.vercel.app/'} className='link link-hover'>Watermark</Link>
+                        <Link href={'/profile/setting'} className='link link-hover'>Account</Link>
                     </div>
                     <div className='place-items-center md:place-items-start '>
 					<span className='font-bold text-black dark:text-white'>
 						CONTACT US
 					</span>
-                        <a className='link link-hover'>
+                        <a href={'https://www.google.com/maps/dir//Science+and+Technology+Advanced+Development+Co.,+Ltd.,+St+562,+Phnom+Penh+12151/@11.578557,104.9015464,19z/data=!4m8!4m7!1m0!1m5!1m1!1s0x310951e96d257a6f:0x6b66703c5fc0c7cc!2m2!1d104.9017868!2d11.5782546?entry=ttu'} className='link link-hover'>
                             {" "}
                             <AiFillHome className='inline me-2'/> Phnom Penh
                         </a>
-                        <a className='link link-hover'>
+                        <a href={'mailto: istad@gmail.com '} className='link link-hover'>
                             {" "}
                             <MdEmail className='inline me-2'/> istad@gmail.com
                         </a>
-                        <a className='link link-hover'>
+                        <a href={'tel: +885 812661909'} className='link link-hover'>
                             {" "}
                             <BsFillTelephoneFill className='inline me-2'/> +885 812661909
                         </a>
-                        <a className='link link-hover'>
+                        <a  href={'tel: +885 812661909'} className='link link-hover'>
                             {" "}
                             <GiRotaryPhone className='inline me-2'/>
                             +885 9954245

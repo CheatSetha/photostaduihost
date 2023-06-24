@@ -8,8 +8,7 @@ import Link from "next/link"
 export default function page() {
 	return (
 		<div className=' db-bg h-fit   dark:bg-primary  rounded-md shadow'>
-			<main>
-				<div className='mt-5 ml-7'>
+			<div className='mt-5 pl-7 sticky top-20 z-50 db-bg dark:bg-primary'>
 					<h1 className='text-[32px] font-semibold dark:text-white mb-5'>
 						Dashboard Overview
 					</h1>
@@ -24,6 +23,8 @@ export default function page() {
 						</ul>
 					</div>
 				</div>
+			<main>
+				
 				{/* start Daily Edit */}
 				<div className='grid lg:grid-cols-4 gap-4 p-4'>
 					<div className='col-span-1 bg-white flex justify-between w-full  p-4 rounded-main dark:bg-secondary'>

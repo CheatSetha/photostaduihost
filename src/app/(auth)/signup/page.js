@@ -7,6 +7,7 @@ import { signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { BASE_URL } from "@/app/api/BaseAPI"
 import { useTheme } from "next-themes"
+import Image from "next/image"
 
 const validationShcema = Yup.object({
 	email: Yup.string().email("Invalid email address").required("Required"),
@@ -109,6 +110,7 @@ const Page = () => {
 					{({ isSubmitting }) => (
 						<Form>
 							<div className='form-container w-[90%]  xl:w-[600px] mx-auto  border p-10 rounded-[16px]'>
+							<Image className="mx-auto pt-5 pb-10 max-sm:pb-6" width={170} height={100} src={`/assets/image/${theme==='dark'?'mainlogov2':'mainlogo-blackv2'}.png`} alt="logo photo"/>
 								<h1 className='font-bold text-2xl mb-5 dark:text-white'>
 									Sign Up
 								</h1>

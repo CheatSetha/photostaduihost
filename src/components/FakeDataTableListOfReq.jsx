@@ -127,8 +127,8 @@ const FakeDataTable = () => {
 					<button className="flex border-none items-center rounded-main h-[40px] mr-3 space-x-2 text-white p-2 px-3 bg-[#E85854] justify-center" onClick={() => handleDelete(row.id)}>
 						<Image
 							src={"/assets/icons/trush-square.svg"}
-							width={25}
-							height={25}
+							width={23}
+							height={23}
 							alt='delete icon'
                           
 						/>
@@ -138,8 +138,8 @@ const FakeDataTable = () => {
 						<button className="flex  bg-secondary text-white rounded-main space-x-2 items-center p-2 px-3 btn-outline justify-center h-[40px]" onClick={() => handleMarkAsRead(row.id)}>
                             <Image
 							src={"/assets/icons/chart-success.svg"}
-							width={25}
-							height={25}
+							width={22}
+							height={22}
 							alt='delete icon'
 							className=' invert'
 						/>

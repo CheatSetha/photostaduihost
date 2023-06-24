@@ -6,6 +6,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai"
 import DataTable, { createTheme } from "react-data-table-component"
 import { AiOutlinePlusCircle } from "react-icons/ai"
 import DeleteIcon from "@/components/icon/DeleteIcon"
+import DateRangeSelector from "./datetimecomponent/DateRangeSelector"
 
 export function TutorialDatatable() {
 	const editorRef = useRef()
@@ -94,8 +95,8 @@ export function TutorialDatatable() {
 					<button className='rounded-main p-2.5  text-white  '>
 						<Image
 							src={"/assets/icons/edit.svg"}
-							width={25}
-							height={25}
+							width={23}
+							height={23}
 							alt='delete icon'
 							className='dark:invert'
 						/>
@@ -159,11 +160,12 @@ export function TutorialDatatable() {
 							required
 						/>
 					</div>
+					<DateRangeSelector />
 				</form>
 				<button
 					// onClick={() => window.my_modal_4.showModal()}
 					onClick={() => window.my_modal_4.showModal()}
-					className='rounded-main px-5 max-sm:px-2 p-2.5 bg-black text-white  dark:bg-primary'
+					className='rounded-main px-5 max-sm:px-2 p-2.5 bg-black text-white  '
 				>
 					<AiOutlinePlusCircle className='inline text-2xl' />{" "}
 					<span className='max-sm:hidden'>Add new tutorial</span>
@@ -226,14 +228,14 @@ export function TutorialDatatable() {
 								></textarea>
 							</div>
 						</form>
-						<div className={"z-50 h-[100vh]"}>
+						<div className={"z-50 mt-3 rounded-main h-[100vh]"}>
 							{editorLoaded ? (
 								<CKEditor editor={ClassicEditor} />
 							) : (
 								" ckeditor is  laoding..."
 							)}
 							<div className="flex justify-end ">
-							<button type="button" class="text-white rounded-main  mt-5 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2">Post Now</button>
+							<button type="button" className='rounded-main px-5 max-sm:px-2 p-2.5 bg-black text-white   mt-5'>Post Now</button>
 							</div>
 						</div>
 					</form>
@@ -263,6 +265,12 @@ export function TutorialDatatable() {
 				padding: 0,
 			},
 		},
+		subHeader: {
+			style: {
+				padding: "0px",
+				margin: "0px",
+			},
+		},
 	}
 	const customeStyleDark = {
 		headCells: {
@@ -284,6 +292,12 @@ export function TutorialDatatable() {
 				padding: 0,
 			},
 		},
+		subHeader:{
+			style:{
+				padding:0,
+				margin:0
+			}
+		}
 	}
 	// chage theme of the table to dark and light
 	const themeColor = useTheme()
