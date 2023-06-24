@@ -18,24 +18,23 @@ const lightBackground = " bg-white "
 //padding section
 const paddingSection = " pb-20 "
 
-
- 
-let descriptionTutorials_two ="	Start by designing a certificate template that includes relevant information such as the recipient name, the title of the certificate, the issuing organization name and logo, a description of the achievement, and any additional details you want to include. This template can be created using graphic design software or online certificate design tools."
+let descriptionTutorials_two =
+	"	Start by designing a certificate template that includes relevant information such as the recipient name, the title of the certificate, the issuing organization name and logo, a description of the achievement, and any additional details you want to include. This template can be created using graphic design software or online certificate design tools."
 export default function Home() {
-//description Tutorials
-const [showMore, setShowMore] = useState(false);
-const [showMore_one, setShowMore_one] = useState(false);
-const toggleText = () => {
-  setShowMore(!showMore);
-};
-const toggleText_one = () => {
-	setShowMore_one(!showMore_one);
-  };
-    const [isExpanded, setIsExpanded] = useState(false);
-  
-    const handleToggle = () => {
-      setIsExpanded(!isExpanded);
-    };
+	//description Tutorials
+	const [showMore, setShowMore] = useState(false)
+	const [showMore_one, setShowMore_one] = useState(false)
+	const toggleText = () => {
+		setShowMore(!showMore)
+	}
+	const toggleText_one = () => {
+		setShowMore_one(!showMore_one)
+	}
+	const [isExpanded, setIsExpanded] = useState(false)
+
+	const handleToggle = () => {
+		setIsExpanded(!isExpanded)
+	}
 	return (
 		<main
 			className={
@@ -61,11 +60,19 @@ const toggleText_one = () => {
 						Level up your content with customizeable watermarks and create
 						stunning certificates effortlessly on our website.
 					</p>
-                    <Link href="#" className="">
-                        <button type='button' class={" focus:outline-none text-white bg-[#E85854] hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-[16px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 max-sm:text-[10px] max-sm:py-[5px] max-sm:px-[10px] max-sm:items-center max-sm:mb-0"}>
-                             <p className="mx-5">Get Start</p> 
-                        </button>
-                    </Link>
+					<Link
+						href='#'
+						className=''
+					>
+						<button
+							type='button'
+							class={
+								" focus:outline-none text-white bg-[#E85854] hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-[16px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 max-sm:text-[10px] max-sm:py-[5px] max-sm:px-[10px] max-sm:items-center max-sm:mb-0"
+							}
+						>
+							<p className='mx-5'>Get Start</p>
+						</button>
+					</Link>
 				</div>
 				<Image
 					alt='banner'
@@ -78,8 +85,8 @@ const toggleText_one = () => {
 			<section
 				class={
 					paddingSection +
-					lightBackground + 
-					darkBACKGROUND + 
+					lightBackground +
+					darkBACKGROUND +
 					"xl:w-[1290px] w-full  max-sm:px-5 px-5  "
 				}
 			>
@@ -114,9 +121,6 @@ const toggleText_one = () => {
 							/>
 						</div>
 
-
-
-				 
 						<div className='lg:w-[49%] w-[90%]  certificate p-10 flex max-sm:w-full max-sm:p-4 mb-[18px] md:w-full max-md:w-full  '>
 							<div className=''>
 								<h2 className='text-3xl text-[#222] dark:text-white font-bold  max-sm:text-[20px]'>
@@ -174,44 +178,54 @@ const toggleText_one = () => {
 							Add Custom Watermark to Photos in 4 minute
 						</h2>
 						<p className='py-10 text-[#333] max-sm:pt-[15px] max-sm:text-[12px] max-sm:pb-[20px] '>
-							Watermark photos right in your browser. Add custom ​​watermarks with your logo and text. Make multi-part watermarks. Add transparent and opaque watermarks
+							Watermark photos right in your browser. Add custom ​​watermarks
+							with your logo and text. Make multi-part watermarks. Add
+							transparent and opaque watermarks
 							{showMore_one ? (
 								<>
-							.Resize photos before publishing online. Import photos from your computer, Google Drive or Dropbox. Instant uploads and downloads. Watermark pictures without waiting in line. Use it for free with optional paid options.
-						    	</>
-							) : (	<span id='dots'>...</span>)}
-							 
+									.Resize photos before publishing online. Import photos from
+									your computer, Google Drive or Dropbox. Instant uploads and
+									downloads. Watermark pictures without waiting in line. Use it
+									for free with optional paid options.
+								</>
+							) : (
+								<span id='dots'>...</span>
+							)}
 						</p>
 						<button
 							onClick={toggleText_one}
 							className='focus:outline-none text-white bg-[#E85854] hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-[16px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 max-sm:text-[10px] max-sm:py-[5px] max-sm:px-[10px] max-sm:items-center max-sm:mb-0'
 						>
-							{showMore_one ? 'read less' : 'read more...'}
+							{showMore_one ? "read less" : "read more..."}
 						</button>
 					</div>
 				</div>
 				<div className='flex justify-between max-sm:flex-col-reverse'>
-				<div className='w-[49%] p-10 bg-[#e9e8e8]  rounded-[26px] max-sm:w-full max-sm:p-4'>
+					<div className='w-[49%] p-10 bg-[#e9e8e8]  rounded-[26px] max-sm:w-full max-sm:p-4'>
 						<h2 className='text-3xl text-[#111] font-bold max-sm:text-[20px]  max-sm:text-center max-sm:leading-[25px]'>
 							Generate Certificate in 7 minutes
 						</h2>
 						<p className='py-10 text-[#333] max-sm:pt-[15px] max-sm:text-[12px] max-sm:pb-[20px]'>
-							Start by designing a certificate template that includes relevant information such as the recipient name, the title of the certificate, the issuing organization name and logo
+							Start by designing a certificate template that includes relevant
+							information such as the recipient name, the title of the
+							certificate, the issuing organization name and logo
 							{showMore ? (
-							<>
-								, a description of the achievement, and any additional details you want to include. This template can be created using graphic design software or online certificate design tools.
-							</>
+								<>
+									, a description of the achievement, and any additional details
+									you want to include. This template can be created using
+									graphic design software or online certificate design tools.
+								</>
 							) : (
-							<span id='dots'>...</span>
+								<span id='dots'>...</span>
 							)}
 						</p>
 						<button
 							onClick={toggleText}
 							className='focus:outline-none text-white bg-[#E85854] hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-[16px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 max-sm:text-[10px] max-sm:py-[5px] max-sm:px-[10px] max-sm:items-center max-sm:mb-0'
 						>
-							{showMore ? 'read less' : 'read more...'}
+							{showMore ? "read less" : "read more..."}
 						</button>
-						</div>
+					</div>
 
 					<div className='w-[49%] max-sm:w-full'>
 						<iframe
@@ -227,141 +241,152 @@ const toggleText_one = () => {
 					</div>
 				</div>
 			</section>
-			<section className={
-				paddingSection +
-				lightBackground + 
-				darkBACKGROUND + 
-				"xl:w-[1290px] "}>
+			<section
+				className={
+					paddingSection + lightBackground + darkBACKGROUND + "xl:w-[1290px] "
+				}
+			>
 				<h1 className='text-center pb-14 text-5xl font-bold  dark:text-slate-300 text-slate-950'>
 					FAQ
 				</h1>
 				<div className='w-[90%] space-y-5 mx-auto '>
-                  <div
-                    tabIndex={0}
-                    className={'collapse w-fullmb-3 collapse-arrow'}
-                    >
-                    <div
-                        className={lightBackground + darkBACKGROUND + " collapse-title   font-medium"}
-                    >
-				 
-							 <p className= " text-[#222] dark:text-[#fff] max-sm:text-[12px]">
-                             CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
-                        </p>
-						 
-                    
-                    </div>
-              
-                        <div className={lightBackground + darkBACKGROUND + 'collapse-content'}>
-                        <p className="text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3">
-                            Yes, You can upload and use your own custom image or logo as a watermark on our website.
-                        </p>
-                        </div>
-              
-                    </div>
+					<div
+						tabIndex={0}
+						className={"collapse w-fullmb-3 collapse-arrow"}
+					>
+						<div
+							className={
+								lightBackground +
+								darkBACKGROUND +
+								" collapse-title   font-medium"
+							}
+						>
+							<p className=' text-[#222] dark:text-[#fff] max-sm:text-[12px]'>
+								CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
+							</p>
+						</div>
+
+						<div
+							className={lightBackground + darkBACKGROUND + "collapse-content"}
+						>
+							<p className='text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3'>
+								Yes, You can upload and use your own custom image or logo as a
+								watermark on our website.
+							</p>
+						</div>
+					</div>
 
 					<div
-                    tabIndex={0}
-                    className={'collapse w-fullmb-3 collapse-arrow'}
-                    >
-                    <div
-                        className={lightBackground + darkBACKGROUND + " collapse-title   font-medium"}
-                    >
-				 
-							 <p className= " text-[#222] dark:text-[#fff] max-sm:text-[12px]">
-                             CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
-                        </p>
-						 
-                    
-                    </div>
-              
-                        <div className={lightBackground + darkBACKGROUND + 'collapse-content'}>
-                        <p className="text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3">
-                            Yes, You can upload and use your own custom image or logo as a watermark on our website.
-                        </p>
-                        </div>
-              
-                    </div>
+						tabIndex={0}
+						className={"collapse w-fullmb-3 collapse-arrow"}
+					>
+						<div
+							className={
+								lightBackground +
+								darkBACKGROUND +
+								" collapse-title   font-medium"
+							}
+						>
+							<p className=' text-[#222] dark:text-[#fff] max-sm:text-[12px]'>
+								CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
+							</p>
+						</div>
 
-
-					<div
-                    tabIndex={0}
-                    className={'collapse w-fullmb-3 collapse-arrow'}
-                    >
-                    <div
-                        className={lightBackground + darkBACKGROUND + " collapse-title   font-medium"}
-                    >
-				 
-							 <p className= " text-[#222] dark:text-[#fff] max-sm:text-[12px]">
-                             CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
-                        </p>
-						 
-                    
-                    </div>
-              
-                        <div className={lightBackground + darkBACKGROUND + 'collapse-content'}>
-                        <p className="text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3">
-                            Yes, You can upload and use your own custom image or logo as a watermark on our website.
-                        </p>
-                        </div>
-              
-                    </div>
+						<div
+							className={lightBackground + darkBACKGROUND + "collapse-content"}
+						>
+							<p className='text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3'>
+								Yes, You can upload and use your own custom image or logo as a
+								watermark on our website.
+							</p>
+						</div>
+					</div>
 
 					<div
-                    tabIndex={0}
-                    className={'collapse w-fullmb-3 collapse-arrow'}
-                    >
-                    <div
-                        className={lightBackground + darkBACKGROUND + " collapse-title   font-medium"}
-                    >
-				 
-							 <p className= " text-[#222] dark:text-[#fff] max-sm:text-[12px]">
-                             CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
-                        </p>
-						 
-                    
-                    </div>
-              
-                        <div className={lightBackground + darkBACKGROUND + 'collapse-content'}>
-                        <p className="text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3">
-                            Yes, You can upload and use your own custom image or logo as a watermark on our website.
-                        </p>
-                        </div>
-              
-                    </div>
+						tabIndex={0}
+						className={"collapse w-fullmb-3 collapse-arrow"}
+					>
+						<div
+							className={
+								lightBackground +
+								darkBACKGROUND +
+								" collapse-title   font-medium"
+							}
+						>
+							<p className=' text-[#222] dark:text-[#fff] max-sm:text-[12px]'>
+								CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
+							</p>
+						</div>
+
+						<div
+							className={lightBackground + darkBACKGROUND + "collapse-content"}
+						>
+							<p className='text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3'>
+								Yes, You can upload and use your own custom image or logo as a
+								watermark on our website.
+							</p>
+						</div>
+					</div>
 
 					<div
-                    tabIndex={0}
-                    className={'collapse w-fullmb-3 collapse-arrow'}
-                    >
-                    <div
-                        className={lightBackground + darkBACKGROUND + " collapse-title   font-medium"}
-                    >
-				 
-							 <p className= " text-[#222] dark:text-[#fff] max-sm:text-[12px]">
-                             CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
-                        </p>
-						 
-                    
-                    </div>
-              
-                        <div className={lightBackground + darkBACKGROUND + 'collapse-content'}>
-                        <p className="text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3">
-                            Yes, You can upload and use your own custom image or logo as a watermark on our website.
-                        </p>
-                        </div>
-              
-                    </div>
+						tabIndex={0}
+						className={"collapse w-fullmb-3 collapse-arrow"}
+					>
+						<div
+							className={
+								lightBackground +
+								darkBACKGROUND +
+								" collapse-title   font-medium"
+							}
+						>
+							<p className=' text-[#222] dark:text-[#fff] max-sm:text-[12px]'>
+								CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
+							</p>
+						</div>
 
-				 
-		 
+						<div
+							className={lightBackground + darkBACKGROUND + "collapse-content"}
+						>
+							<p className='text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3'>
+								Yes, You can upload and use your own custom image or logo as a
+								watermark on our website.
+							</p>
+						</div>
+					</div>
+
+					<div
+						tabIndex={0}
+						className={"collapse w-fullmb-3 collapse-arrow"}
+					>
+						<div
+							className={
+								lightBackground +
+								darkBACKGROUND +
+								" collapse-title   font-medium"
+							}
+						>
+							<p className=' text-[#222] dark:text-[#fff] max-sm:text-[12px]'>
+								CAN I USE MY OWN CUSTOM IMAGE OR LOGO AS A WATERMARK ?
+							</p>
+						</div>
+
+						<div
+							className={lightBackground + darkBACKGROUND + "collapse-content"}
+						>
+							<p className='text-[#222] dark:text-[#fff] max-sm:text-[12px] bg-[#F6F6F6] dark:bg-slate-950 rounded-[10px] p-3'>
+								Yes, You can upload and use your own custom image or logo as a
+								watermark on our website.
+							</p>
+						</div>
+					</div>
 				</div>
-			</section >
-				{/* tutuorial req */}
-			<section className="xl:w-[1290px] w-full px-5 mb-5  ">
+			</section>
+			{/* tutuorial req */}
+			<section className='xl:w-[1290px] w-full px-5 mb-5  '>
 				<h1 className='text-center max-sm:text-[24px] pb-14  text-5xl font-bold dark:text-slate-300 text-slate-950'>
 					Tutorials Request
 				</h1>
-			    <FormREQ/>
+				<FormREQ />
 			</section>
 		</main>
 	)

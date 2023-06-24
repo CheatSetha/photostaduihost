@@ -27,10 +27,10 @@ export default function page() {
 				Search Engine Optimization
 			</h1>
 
-			<form className="h-screen">
-				<div class='grid gap-6 p-5 mb-6 grid-cols-1  md:grid-cols-2'>
+			<form className="xl:h-screen h-full w-full xl:w-[1000px]">
+				<div class='grid gap-10 p-5 mb-6 grid-cols-1  md:grid-cols-2'>
 					<div>
-						<div className='mb-5'>
+						<div className='mb-7'>
 							<label
 								for='first_name'
 								class='block mb-2 text-sm font-medium text-light dark:text-white'
@@ -46,7 +46,7 @@ export default function page() {
 							/>
 						</div>
 					
-						<div className='mb-5'>
+						<div className='mb-7'>
 							<label
 								for='first_name'
 								class='block mb-2 text-sm font-medium text-light dark:text-white'
@@ -61,7 +61,7 @@ export default function page() {
 								required
 							/>
 						</div>
-						<div className='md:mb-0 mb-5'>
+						<div className='md:mb-0 mb-7'>
 							<label
 								for='first_name'
 								class='block mb-2 text-sm font-medium text-light dark:text-white'
@@ -75,7 +75,7 @@ export default function page() {
 						</div>
 					</div>
 					<div>
-						<div className='mb-5'>
+						<div className='mb-7'>
 							<label
 								for='first_name'
 								class='block mb-2 text-sm font-medium text-light dark:text-white'
@@ -90,7 +90,7 @@ export default function page() {
 								required
 							/>
 						</div>
-						<div className='mb-5'>
+						<div className='mb-7'>
 							<label
 								for='first_name'
 								class='block mb-2 text-sm font-medium text-light dark:text-white'
@@ -105,7 +105,7 @@ export default function page() {
 								required
 							/>
 						</div>
-						<div className='mb-5'>
+						<div className='mb-7'>
 							<label
 								for='first_name'
 								class='block mb-2 text-sm font-medium text-light dark:text-white'
@@ -137,10 +137,10 @@ export default function page() {
 						</div>
 					</div>
 				</div>
-				<div className='px-5'>
+				<div className='px-5 flex justify-end'>
 					<button
 						type='submit'
-						class='text-white bg-blue-700  w-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-main text-sm  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+						class='text-white bg-blue-700 px-10 w-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-main text-sm  sm:w-auto  py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
 					>
 						Submit
 					</button>

@@ -328,7 +328,7 @@ const [users, setUsers] = useState(usersData)
                                         </div>
                                         <div className="form-control p-3">
                                             <label className="cursor-pointer flex items-center">
-                                            <input type="checkbox" className="checkbox checkbox-primary" />
+                                            <input type="checkbox" className="checkbox checkbox-primary me-2" />
                                                 <span >SUPERADMIN</span> 
                                             </label>
                                         </div>
@@ -345,7 +345,7 @@ const [users, setUsers] = useState(usersData)
                                             type="file"
                                             id="user_avatar"
                                             name="user_avatar"
-                                            className="file-input file-input-bordered file-input-primary w-full max-w-xs"
+                                            className="file-input file-input-bordered dark:bg-secondary file-input-primary w-full h-[45px] max-w-xs"
                                             aria-describedby="user_avatar_help"
                                      
                                         />

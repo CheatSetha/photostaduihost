@@ -67,7 +67,7 @@ const Page = () => {
                             <div className="flex max-sm:justify-center max-sm:m-auto">
                                 <img
                                     className="lg:w-[277px] lg:h-[277px] md:w-[270px] md:h-[250px] max-sm:w-[250px] max-sm:h-[250px]  object-cover  rounded-full  "
-                                    src="/assets/image/cheto.jpg" alt="Modern building architecture"/>
+                                    src="/assets/image/aboutus/chento.jpg" alt="Modern building architecture"/>
                             </div>
                             <div
                                 className='max-sm:m-3 max-sm:flex max-sm:justify-center md:mx-auto md:rounded-l-none md:shadow-md md:w-[70%]'>
@@ -102,7 +102,7 @@ const Page = () => {
                             <div className="flex max-sm:justify-center max-sm:m-auto ">
                                 <img
                                     className="lg:w-[277px] lg:h-[277px] md:w-[270px] md:h-[250px] max-sm:w-[250px] max-sm:h-[250px]  object-cover  rounded-full  "
-                                    src="/assets/image/setha.png" alt="Modern building architecture"/>
+                                    src="/assets/image/aboutus/setha.png" alt="Modern building architecture"/>
                             </div>
                             <div
                                 className='max-sm:m-3 max-sm:flex max-sm:justify-center md:mx-auto md:rounded-l-none md:shadow-md md:w-[70%]'>
@@ -135,7 +135,7 @@ const Page = () => {
                             <div className="flex max-sm:justify-center max-sm:m-auto ">
                                 <img
                                     className="lg:w-[277px] lg:h-[277px] md:w-[270px] md:h-[250px] max-sm:w-[250px] max-sm:h-[250px]  object-cover  rounded-full  "
-                                    src="/assets/image/bich samrouth.jpg" alt="Modern building architecture"/>
+                                    src="/assets/image/aboutus/somrouth.jpg" alt="Modern building architecture"/>
                             </div>
                             <div
                                 className='max-sm:m-3 md:w-[70%] max-sm:flex max-sm:justify-center md:mx-auto md:rounded-l-none md:shadow-md md:max-w-2xl'>
@@ -202,7 +202,7 @@ const Page = () => {
                             <div className="flex max-sm:justify-center max-sm:m-auto ">
                                 <img
                                     className="lg:w-[277px] lg:h-[277px] md:w-[270px] md:h-[250px] max-sm:w-[250px] max-sm:h-[250px]  object-cover  rounded-full  "
-                                    src="/assets/image/siengpengny.jpg" alt="Modern building architecture"/>
+                                    src="/assets/image/aboutus/pengny.jpg" alt="Modern building architecture"/>
                             </div>
                             <div
                                 className='max-sm:m-3 md:w-[70%] max-sm:flex max-sm:justify-center md:mx-auto md:rounded-l-none md:shadow-md md:max-w-2xl'>
@@ -236,7 +236,7 @@ const Page = () => {
                             <div className="flex max-sm:justify-center max-sm:m-auto ">
                                 <img
                                     className="lg:w-[277px] lg:h-[277px] md:w-[270px] md:h-[250px] max-sm:w-[250px] max-sm:h-[250px]  object-cover  rounded-full "
-                                    src="/assets/image/Yoeurn sonita.jpg" alt="Modern building architecture"/>
+                                    src="/assets/image/aboutus/lita.jpg" alt="Modern building architecture"/>
                             </div>
                             <div
                                 className='max-sm:m-3 md:w-[70%] max-sm:flex max-sm:justify-center md:mx-auto md:rounded-l-none md:shadow-md md:max-w-2xl'>
@@ -268,7 +268,7 @@ const Page = () => {
                             <div className="flex max-sm:justify-center max-sm:m-auto ">
                                 <img
                                     className="lg:w-[277px] lg:h-[277px] md:w-[270px] md:h-[250px] max-sm:w-[250px] max-sm:h-[250px]  object-cover  rounded-full "
-                                    src="/assets/image/poster_2.jpg" alt="Modern building architecture"/>
+                                    src="/assets/image/aboutus/saran.jpg" alt="Modern building architecture"/>
                             </div>
                             <div
                                 className='max-sm:m-3 md:w-[70%] max-sm:flex max-sm:justify-center md:mx-auto md:rounded-l-none md:shadow-md md:max-w-2xl'>

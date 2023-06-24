@@ -25,7 +25,7 @@ export default function Page() {
             </div>
             <section>
           
-                <div className="h-screen">
+                <div className="h-full xl:h-screen">
                     <TutorialDatatable />
 
        

@@ -288,7 +288,7 @@ export default function Layout({ children }) {
 				</div>
 			</nav>
 			{/* children display */}
-			<div className='sm:ml-[300px]'>{children}</div>
+			<div className='sm:ml-[300px] dark:bg-primary'>{children}</div>
 
 			<Script
 				strategy={"beforeInteractive"}

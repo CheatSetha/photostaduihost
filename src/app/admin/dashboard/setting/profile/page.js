@@ -161,8 +161,8 @@ export default function Home() {
 					validationSchema={validationShcema}
 					onSubmit={handleSubmit}
 				>
-					<Form>
-						<div className='grid gap-6 h-screen mb-6 md:grid-cols-2'>
+					<Form className="xl:h-screen h-full">
+						<div className='grid gap-6  mb-6 md:grid-cols-2 w-full xl:w-[1000px]'>
 							{/* user name */}
 							<div className='mb-3'>
 								<label
@@ -388,7 +388,7 @@ export default function Home() {
 								<img
 									src={previewUrl}
 									alt='Preview'
-									className='mt-2 rounded-md max-w-xs'
+									className='mt-2 lg:block rounded-md max-w-xs'
 								/>
 							)}
 						</div>
@@ -399,6 +399,7 @@ export default function Home() {
 						>
 							Submit
 						</button>
+						
 					</Form>
 				</Formik>
 			</section>

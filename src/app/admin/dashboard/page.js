@@ -8,7 +8,7 @@ import Link from "next/link"
 export default function page() {
 	return (
 		<div className=' db-bg h-fit   dark:bg-primary  rounded-md shadow'>
-			<main >
+			<main>
 				<div className='mt-5 ml-7'>
 					<h1 className='text-[32px] font-semibold dark:text-white mb-5'>
 						Dashboard Overview

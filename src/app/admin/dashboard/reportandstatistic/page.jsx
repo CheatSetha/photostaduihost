@@ -24,7 +24,8 @@ export const Page = () => {
 			</div>
 			{/* end of header section */}
 
-			<div className='grid grid-cols-1 xl:h-screen lg:grid-cols-4 gap-4'>
+			<div className="h-full xl:h-screen">
+			<div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
 				{/*box 1*/}
 				<div
 					className={
@@ -155,6 +156,7 @@ export const Page = () => {
 						2
 					</h2>
 				</div>
+			</div>
 			</div>
 		</div>
 	)
