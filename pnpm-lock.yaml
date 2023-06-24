@@ -14,9 +14,7 @@ dependencies:
   '@ckeditor/ckeditor5-react':
     specifier: ^6.0.0
     version: 6.0.0(@ckeditor/ckeditor5-core@38.0.1)(@ckeditor/ckeditor5-engine@38.0.1)(@ckeditor/ckeditor5-utils@38.0.1)(@ckeditor/ckeditor5-watchdog@38.0.1)(react@18.2.0)
-  aos:
-    specifier: 3.0.0-beta.6
-    version: 3.0.0-beta.6
+ 
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.24)
