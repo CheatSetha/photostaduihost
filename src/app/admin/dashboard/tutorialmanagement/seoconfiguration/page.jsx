@@ -34,7 +34,7 @@ export default function page() {
 				</div>
 			</div>
 
-			<form className='xl:h-screen h-full w-full xl:w-[1000px]'>
+			<form className='xl:h-screen h-full w-full'>
 				<h1 className='font-semibold text-center text-[24px] my-14 dark:text-white'>
 					Search Engine Optimization
 				</h1>

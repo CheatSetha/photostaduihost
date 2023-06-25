@@ -164,7 +164,7 @@ export default function Home() {
 					onSubmit={handleSubmit}
 				>
 					<Form className="xl:h-screen h-full">
-						<div className='grid gap-x-10 gap-6 mb-6 md:grid-cols-2 w-full xl:w-[1000px]'>
+						<div className='grid gap-x-10 gap-6 mb-6 md:grid-cols-2 w-full '>
 							{/* user name */}
 							<div className='mb-3'>
 								<label
@@ -276,7 +276,7 @@ export default function Home() {
 							</div>
 							{/* date */}
 							<div>
-								<div class='relative mb-3 max-w-sm'>
+								<div class='relative mb-3 w-full'>
 									<label
 										htmlFor='gender'
 										className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
