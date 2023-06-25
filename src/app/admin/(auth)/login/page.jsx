@@ -105,7 +105,7 @@ const Page = () => {
                         </button>
                         <small className='justify-end flex mt-10 dark:text-white mr-2'>
                             forgot password ? {" "}
-                            <span className='text-[#E85854] cursor-pointer'><Link href={"/sendemail"}>click  here</Link>  </span>{" "}
+                            <span className='text-[#E85854] cursor-pointer ps-3'><Link href={"/sendemail"}>click  here</Link>  </span>{" "}
                         </small>
                     </div>
 

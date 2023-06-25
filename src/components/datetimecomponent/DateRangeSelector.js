@@ -51,7 +51,7 @@ const DateRangeSelector = ({ ranges, onChange, onSubmit, ...rest }) => {
 	return (
 		<div>
 			<button
-				className='me-5  ml-5'
+				className='me-5  '
 				onClick={handleShow}
 			>
 				<BiFilterAlt className='text-[30px] inline dark:text-white' />{" "}
@@ -66,11 +66,13 @@ const DateRangeSelector = ({ ranges, onChange, onSubmit, ...rest }) => {
                </div>} */}
 			</button>
 			<div
-				className={`shadow-sm  absolute left-20 bg-white dark:bg-black z-40 ${
+				className={`shadow-sm rounded-main absolute left-20 bg-white z-40 ${
 					showDateRange ? " " : "hidden"
 				}`}
 			>
 				<DateRangePicker
+				
+				className="dark:bg-secondary  .date-range-picker "
 					onChange={handleSelect}
 					showSelectionPreview={true}
 					moveRangeOnFirstSelection={false}
@@ -79,7 +81,7 @@ const DateRangeSelector = ({ ranges, onChange, onSubmit, ...rest }) => {
 					s
 					direction='horizontal'
 				/>
-				<div className='text-right position-relative rdr-buttons-position mt-2 mr-3 p-5'>
+				<div className='text-right dark:bg-white position-relative rdr-buttons-position mt-2 mr-3 p-5'>
 					<button
 						className=' p-2 bg-black text-white rounded-main px-7 mr-2'
 						//   onClick={() => setShow(true)}

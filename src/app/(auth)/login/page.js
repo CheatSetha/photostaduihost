@@ -107,9 +107,9 @@ const Page = () => {
                         >
                             <FcGoogle className='inline'/> Log in with google
                         </button>
-                        <small className='justify-end ml-3 flex mt-10 dark:text-white mr-2'>
+                        <small className='justify-end ml-3 flex mt-10 dark:text-white '>
                             forgot password ? {" "}
-                            <span className='text-[#E85854] cursor-pointer'><Link href={"/sendemail"}>click  here</Link>  </span>{" "}
+                            <span className='text-[#E85854] ps-2 cursor-pointer'><Link href={"/sendemail"}>click  here</Link>  </span>{" "}
                         </small>
                     </div>
 

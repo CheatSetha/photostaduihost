@@ -36,7 +36,7 @@ const CertificateDataComponent = () => {
 	const subHeaderComponentMemo = useMemo(() => {
 		
 		return (
-			<div className="absolute left-0 ">
+			<div className="absolute left-0 m-0 p-0">
 				<DateRangeSelector />
 		
 			</div>
@@ -45,8 +45,8 @@ const CertificateDataComponent = () => {
     const customeStylesLight = {
 		subHeader: {
 			style: {
-				padding: "0px",
-				margin: "0px",
+				padding: 0,
+                margin:0,
 			},
 		},
 		headCells: {

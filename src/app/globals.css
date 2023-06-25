@@ -165,3 +165,10 @@ input:checked + .slider:before {
 }
 
 /* reset password email input */
+.date-range-picker {
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
