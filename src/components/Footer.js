@@ -69,8 +69,8 @@ const MainFooter = () => {
 					<span className='font-bold text-black dark:text-white'>
 						USEFUL LINKS
 					</span>
-                        <Link href={'https://photostad-editor.vercel.app/'} className='link link-hover'>Certificate</Link>
-                        <Link href={'https://photostad-editor.vercel.app/'} className='link link-hover'>Watermark</Link>
+                        <Link href={'https://photostad-editor.vercel.app/watermark'} className='link link-hover'>Certificate</Link>
+                        <Link href={'https://photostad-editor.vercel.app/watermark'} className='link link-hover'>Watermark</Link>
                         <Link href={'/profile/setting'} className='link link-hover'>Account</Link>
                     </div>
                     <div className='place-items-center md:place-items-start '>

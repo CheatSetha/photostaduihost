@@ -74,7 +74,7 @@ const MainNavBar = () => {
 						</li>
 
 						<li>
-							<Link href="https://photostad-editor.vercel.app"
+							<Link href="https://photostad-editor.vercel.app/watermark"
 								className={
 									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
@@ -84,7 +84,7 @@ const MainNavBar = () => {
 						</li>
 
 						<li>
-							<Link href={"/certificate"}
+							<Link href={"https://photostad-editor.vercel.app/generatecertificate"}
 								className={
 									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
@@ -107,7 +107,7 @@ const MainNavBar = () => {
 								className={
 									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
 								}
-								href={"/admin/dashboard"}
+								href={"/admin/login"}
 							>
 								Dashboard
 							</Link>
@@ -192,11 +192,11 @@ const MainNavBar = () => {
 								</Link>
 							</li>
 							<li className={"dark:hover:text-white"}>
-								<Link href={'https://photostad-editor.vercel.app'} className={"dark:hover:text-white"}>Watermark</Link>
+								<Link href={'https://photostad-editor.vercel.app/watermark'} className={"dark:hover:text-white"}>Watermark</Link>
 							</li>
 
 							<li className={"dark:hover:text-white"}>
-								<Link href={'/certificate'} className={"dark:hover:text-white"}>Certificate</Link>
+								<Link href={'https://photostad-editor.vercel.app/generatecertificate'} className={"dark:hover:text-white"}>Certificate</Link>
 							</li>
 							<li className={"dark:hover:text-white"}>
 								<Link

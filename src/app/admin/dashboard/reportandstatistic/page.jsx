@@ -178,7 +178,7 @@ export const Page = () => {
 						<p className={"font-extralight text-light dark:text-dark"}>
 							Total of Tutorials
 						</p>
-						<h2 className={"text-[40px] font-black text-light dark:text-dark"}>
+						<h2 className={"text-[40px] font-black text-light rounded-main dark:text-dark"}>
 							2
 						</h2>
 					</div>

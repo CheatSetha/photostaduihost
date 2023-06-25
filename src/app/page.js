@@ -107,7 +107,7 @@ export default function Home() {
 								</p>
 								<ButtonComponent
 									name='Edit Watermark'
-									goto='#'
+									goto='https://photostad-editor.vercel.app/watermark'
 									type='button'
 									isBold={true}
 								/>
@@ -133,7 +133,7 @@ export default function Home() {
 								</p>
 								<ButtonComponent
 									name='Edit Certificate'
-									goto='#'
+									goto='https://photostad-editor.vercel.app/generatecertificate'
 									type='button'
 									isBold={true}
 								/>

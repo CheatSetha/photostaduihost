@@ -5,6 +5,7 @@ import { FiUsers } from "react-icons/fi"
 import { AiOutlineRise } from "react-icons/ai"
 import BarChart from "@/components/BarChart"
 import Link from "next/link"
+import DashboardOverview from "@/components/dashboard-component/DashboardOverview"
 export default function page() {
 	return (
 		<div className=' db-bg h-fit   dark:bg-primary  rounded-md shadow'>
@@ -24,9 +25,10 @@ export default function page() {
 					</div>
 				</div>
 			<main>
+				<DashboardOverview />
 				
 				{/* start Daily Edit */}
-				<div className='grid lg:grid-cols-4 gap-4 p-4'>
+				{/* <div className='grid lg:grid-cols-4 gap-4 p-4'>
 					<div className='col-span-1 bg-white flex justify-between w-full  p-4 rounded-main dark:bg-secondary'>
 						<div className='flex flex-col w-full pb-4'>
 							<h1 className='text-2xl text-light font-bold dark:text-white'>
@@ -50,10 +52,10 @@ export default function page() {
 									</p>
 								</div>
 							</div>
-						</div>
-					</div>
+						</div> */}
+					{/* </div> */}
 					{/* end Daily Edit */}
-					<div className='col-span-1 bg-white flex justify-between w-full  p-4  rounded-main dark:bg-secondary'>
+					{/* <div className='col-span-1 bg-white flex justify-between w-full  p-4  rounded-main dark:bg-secondary'>
 						<div className='flex flex-col w-full pb-4'>
 							<h1 className='text-2xl font-bold dark:text-white'>
 								{" "}
@@ -75,9 +77,9 @@ export default function page() {
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> */}
 					{/* start Unread Requests */}
-					<div className='col-span-1 bg-white flex justify-between w-full  p-4 rounded-main dark:bg-secondary'>
+					{/* <div className='col-span-1 bg-white flex justify-between w-full  p-4 rounded-main dark:bg-secondary'>
 						<div className='flex flex-col w-full pb-4'>
 							<h1 className='text-2xl font-bold dark:text-white'>
 								{" "}
@@ -99,10 +101,10 @@ export default function page() {
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> */}
 					{/* end Unread Requests */}
 					{/* start New Requests */}
-					<div className='col-span-1 bg-white flex justify-between w-full p-4 rounded-main dark:bg-secondary '>
+					{/* <div className='col-span-1 bg-white flex justify-between w-full p-4 rounded-main dark:bg-secondary '>
 						<div className='flex flex-col w-full pb-4'>
 							<h1 className='text-2xl font-bold dark:text-white'>
 								{" "}
@@ -124,11 +126,11 @@ export default function page() {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 				{/* end New Requests */}
-				<div className='lg:ml-4 flex max-sm:flex-wrap  max-sm:ml-5 max-sm:mr-5 max-lg:flex-wrap max-lg:mr-5 max-lg:ml-5 max:lg:flex-wrap'>
+				{/* <div className='lg:ml-4 flex max-sm:flex-wrap  max-sm:ml-5 max-sm:mr-5 max-lg:flex-wrap max-lg:mr-5 max-lg:ml-5 max:lg:flex-wrap'>
 					<BarChart />
-					<div className='flex  max-sm:mt-4 lg:mt-0 lg:ml-5 lg:w-[390px] md:flex-wrap flex-col md:mt-4 max-md:w-[700px] max-lg:w-full '>
+					<div className='flex  max-sm:mt-4 lg:mt-0 lg:ml-5 lg:w-[390px] md:flex-wrap flex-col md:mt-4 max-md:w-[700px] max-lg:w-full '> */}
 						{/* start Recent Activity */}
 						{/* <div className='col-span-1 bg-white flex justify-between  p-4 rounded-lg dark:bg-secondary'>
 							<div className='flex flex-col'>
@@ -193,7 +195,7 @@ export default function page() {
 							
 						</div> */}
 						{/* start Traffic by Website  */}
-						<div className='col-span-1 bg-white dark:bg-secondary flex justify-between w-full p-4 rounded-lg mt-4'>
+						{/* <div className='col-span-1 bg-white dark:bg-secondary flex justify-between w-full p-4 rounded-lg mt-4'>
 							<div className='flex flex-col w-full pb-4 dark:text-white'>
 								<h1 className='text-xl font-bold'> Traffic by Website</h1>
 								<div className='flex mt-4'>
@@ -228,9 +230,9 @@ export default function page() {
 								</div>
 							</div>
 						</div>
-						{/* end Traffic by Website */}
-					</div>
-				</div>
+						
+					</div> */}
+				{/* </div> */}
 				{/* end BarCard */}
 			</main>
 		</div>
