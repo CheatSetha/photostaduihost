@@ -9,7 +9,7 @@ import { useTheme } from "next-themes"
 export default function DashboardOverview() {
     const {theme}   = useTheme()
 	return (
-		<div className='p-5'>
+		<div className=' xl:h-screen h-full'>
 			<div className='grid grid-cols-1 lg:grid-cols-5 gap-4'>
 				{/*box 1*/}
 				<div
@@ -143,7 +143,7 @@ export default function DashboardOverview() {
 						</p>
 						<div className='flex flex-col '>
 							<div>
-                            <span className='text-start mr-5'>Google</span>
+                            <span className='text-start dark:text-white mr-5'>Google</span>
 							<progress
 								className='progress progress-info w-56'
 								value='10'
@@ -152,7 +152,7 @@ export default function DashboardOverview() {
                             </div>
 						
 							<div>
-                            <span className='text-start  mr-3'>YouTube</span>
+                            <span className='text-start dark:text-white  mr-3'>YouTube</span>
 							<progress
 								className='progress progress-error w-56'
 								value='40'
@@ -161,7 +161,7 @@ export default function DashboardOverview() {
                             </div>
 						
 							<div>
-                            <span className='text-start mr-10'>Bing</span>
+                            <span className='text-start mr-10 dark:text-white'>Bing</span>
 							<progress
 								className='progress progress-primary w-56'
 								value='70'

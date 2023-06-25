@@ -8,7 +8,7 @@ import React from "react"
 export default function Page() {
 	return (
 		<div className={"w-full p-5 mx-auto db-bg h-full dark:bg-primary"}>
-			<div className="sticky top-20 z-50 db-bg dark:bg-primary">
+			<div className="sticky top-20 z-40 db-bg dark:bg-primary">
 			<h1
 				className={"text-[32px] text-light dark:text-white font-semibold mb-5"}
 			>User Management

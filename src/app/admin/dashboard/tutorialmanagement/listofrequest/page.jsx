@@ -7,7 +7,7 @@ export default function Page() {
 	return (
 		<div className='w-full p-5 mx-auto db-bg h-full dark:bg-primary'>
 			{/* header section */}
-			<div className='db-bg dark:bg-primary sticky top-20 z-50'>
+			<div className='db-bg dark:bg-primary sticky top-20 z-40'>
 				<h1
 					className={
 						"text-[32px] text-light dark:text-white font-semibold mb-5"

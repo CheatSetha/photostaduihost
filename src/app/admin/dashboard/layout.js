@@ -62,6 +62,15 @@ export default function Layout({ children }) {
 			document.getElementById("dropdown2").classList.add("hidden")
 		}
 	}
+	const [isDropdownOpen3, setIsDropdownOpen3] = useState(false)
+	const handleDropdownOpen3 = () => {
+		setIsDropdownOpen2(!isDropdownOpen2)
+		if (isDropdownOpen2) {
+			document.getElementById("dropdown3").classList.remove("hidden")
+		} else {
+			document.getElementById("dropdown3").classList.add("hidden")
+		}
+	}
 
 	return (
 		<div className='bg-light dark:bg-secondary'>
@@ -117,7 +126,7 @@ export default function Layout({ children }) {
 								</span>
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<Link
 								href={"/admin/dashboard/reportandstatistic"}
 								className='flex items-center mb-6 p-2 text-white rounded-lg dark:text-white hover:bg-secondary  dark:hover:bg-gray-700'
@@ -133,6 +142,63 @@ export default function Layout({ children }) {
 									Report and statistic
 								</span>
 							</Link>
+						</li> */}
+						<li>
+							<button
+								onClick={handleDropdownOpen3}
+								type='button'
+								class='flex items-center w-full p-2 text-whitetransition duration-75 rounded-lg group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
+							>
+								<Image
+									className=''
+									src={"/assets/icons/chart-1.svg"}
+									width={24}
+									height={24}
+									alt='element icon'
+								/>
+								<span className='ml-3 uppercase'>Report and statistic</span>
+								<svg
+									class='w-6 h-6'
+									fill='currentColor'
+									viewBox='0 0 20 20'
+									xmlns='http://www.w3.org/2000/svg'
+								>
+									<path
+										fill-rule='evenodd'
+										d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'
+										clip-rule='evenodd'
+									></path>
+								</svg>
+							</button>
+							<ul
+								id='dropdown3'
+								class='hidden py-2 space-y-2 uppercase'
+							>
+								<li>
+									<Link
+										href={"/admin/dashboard/reportandstatistic"}
+										class='flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
+									>
+										Report and statistic
+									</Link>
+								</li>
+								<li>
+									<Link
+										href={"/admin/dashboard/reportandstatistic/certificateoverview"}
+										class='flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
+									>
+										Certificate overview
+									</Link>
+								</li>
+								<li>
+									<Link
+										href={"/admin/dashboard/reportandstatistic/watermarkoverview"}
+										class='flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
+									>
+										Watermark overview
+									</Link>
+								</li>
+							</ul>
 						</li>
 						<li>
 							<Link href={"/admin/dashboard/tutorialmanagement"}>
