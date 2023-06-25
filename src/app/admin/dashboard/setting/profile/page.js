@@ -133,6 +133,7 @@ export default function Home() {
 	return (
 		<div className='db-bg dark:bg-primary'>
 			<section className='h-full p-5'>
+				<div className="sticky top-20 z-40 db-bg dark:bg-primary">
 				<h1 className='text-[32px] text-light dark:text-white font-semibold mb-5'>
 					Profile
 				</h1>
@@ -154,6 +155,7 @@ export default function Home() {
 						</li>
 					</ul>
 				</div>
+				</div>
 				{/* end of header section */}
 
 				<Formik
@@ -162,7 +164,7 @@ export default function Home() {
 					onSubmit={handleSubmit}
 				>
 					<Form className="xl:h-screen h-full">
-						<div className='grid gap-6  mb-6 md:grid-cols-2 w-full xl:w-[1000px]'>
+						<div className='grid gap-x-10 gap-6 mb-6 md:grid-cols-2 w-full xl:w-[1000px]'>
 							{/* user name */}
 							<div className='mb-3'>
 								<label
@@ -175,7 +177,7 @@ export default function Home() {
 									type='text'
 									id='username'
 									name='username'
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 									placeholder='username'
 									required
 								/>
@@ -197,7 +199,7 @@ export default function Home() {
 									as='select'
 									id='gender'
 									name='gender'
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 								>
 									<option value=''>Choose a gender</option>
 									<option value='male'>Male</option>
@@ -221,7 +223,7 @@ export default function Home() {
 									type='text'
 									id='first_name'
 									name='first_name'
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 									placeholder='John'
 								/>
 								<ErrorMessage
@@ -242,7 +244,7 @@ export default function Home() {
 									type='text'
 									id='last_name'
 									name='last_name'
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 									placeholder='Doe'
 									required
 								/>
@@ -264,7 +266,7 @@ export default function Home() {
 									type='text'
 									id='phone_number'
 									name='phone_number'
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 								/>
 								<ErrorMessage
 									name='phone_number'
@@ -300,7 +302,7 @@ export default function Home() {
 									<Field
 										type='date'
 										name='date'
-										class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+										class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 										placeholder='Select date'
 									/>
 								</div>
@@ -324,7 +326,7 @@ export default function Home() {
 									id='address'
 									name='address'
 									rows='4'
-									className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-main border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 									placeholder='Your address...'
 								/>
 								<ErrorMessage
@@ -346,7 +348,7 @@ export default function Home() {
 									id='biography'
 									name='biography'
 									rows='4'
-									className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-main border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 									placeholder='Your biography...'
 								/>
 								<ErrorMessage
@@ -367,7 +369,7 @@ export default function Home() {
 									type='file'
 									id='user_avatar'
 									name='user_avatar'
-									className='file-input file-input-bordered file-input-primary h-[45px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+									className='file-input file-input-bordered file-input-[black] h-[45px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 rounded-main dark:focus:border-blue-500'
 									aria-describedby='user_avatar_help'
 									onChange={handleFileChange}
 								/>
@@ -395,7 +397,7 @@ export default function Home() {
 						<button
 							type='submit'
 							disabled={setSubmitting}
-							className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+							className='text-white bg-black rounded-main hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
 						>
 							Submit
 						</button>

@@ -67,15 +67,9 @@ export default function ChangePassword() {
     };
     return (
         <section className="h-screen p-5 max-sm:px-5 db-bg dark:bg-primary max-md:px-5 ">
+            <div className="sticky top-20 z-40 db-bg dark:bg-primary">
             <h1 className="text-[32px] text-light dark:text-white font-semibold mb-5">Profile</h1>
-            {/* <div className="text-sm breadcrumbs dark:text-white pb-5">
-                <ul>
-                    <li><Link href={"/#"}>Admin</Link></li>
-                    <li><Link href={"/admin/dashboard/setting/profile"}>Setting</Link></li>
-                    <li>Passowrd</li>
-                </ul>
-            </div> */}
-            {/* breadcrumbs */}
+            
 			<div className='text-sm mb-3 breadcrumbs'>
 				<ul className='font-extralight text-light dark:text-white'>
 					<li>
@@ -90,6 +84,7 @@ export default function ChangePassword() {
 					
 				</ul>
 			</div>
+            </div>
 			{/* end of header section */}
             <div className="xl:w-[1000px]">
                 <Formik
@@ -109,7 +104,7 @@ export default function ChangePassword() {
                                     type="password"
                                     id="old_password"
                                     name="old_password"
-                                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="old password"
                                     required
                                 />
@@ -125,7 +120,7 @@ export default function ChangePassword() {
                                     type="password"
                                     id="new_password"
                                     name="new_password"
-                                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="new password"
                                     required
                                 />
@@ -141,7 +136,7 @@ export default function ChangePassword() {
                                     type="password"
                                     id="repeat_new_password"
                                     name="repeat_new_password"
-                                    className="w-full  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    className="w-full  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-main focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="repeat new password"
                                     required
                                 />
@@ -151,7 +146,7 @@ export default function ChangePassword() {
                                 <button
                                     type="submit"
                                     disabled={setSubmitting}
-                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-main text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 >
                                     Save change
                                 </button>
