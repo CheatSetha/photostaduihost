@@ -34,17 +34,14 @@ export default function DashboardOverview() {
 						<p className={"font-extralight text-light dark:text-white"}>
 							Average Users
 						</p>
-						<div className={"flex space-x-5 "}>
-							<div>
-								<h2
+						<h2
 									className={
 										"font-black text-[32px] text-center text-light dark:text-white"
 									}
 								>
 									7.9K
 								</h2>
-							</div>
-						</div>
+						
 					</div>
 					<div>
 						<Image
@@ -66,17 +63,14 @@ export default function DashboardOverview() {
 						<p className={"font-extralight text-light dark:text-white"}>
 							Unread Requests
 						</p>
-						<div className={"flex space-x-5 "}>
-							<div>
-								<h2
+						<h2
 									className={
 										"font-black text-[32px] text-center text-light dark:text-white"
 									}
 								>
 									7
 								</h2>
-							</div>
-						</div>
+						
 					</div>
 					<div className='col-start-1 col-end-3 row-span-2'>
 						<SmsNotification  stroke={`${theme==='dark'?'white':'black'}`} />
@@ -114,17 +108,14 @@ export default function DashboardOverview() {
 						<p className={"font-extralight text-light dark:text-white"}>
 							New Requests
 						</p>
-						<div className={"flex space-x-5 "}>
-							<div>
-								<h2
+						<h2
 									className={
 										"font-black text-[32px] text-center text-light dark:text-white"
 									}
 								>
 									70
 								</h2>
-							</div>
-						</div>
+						
 					</div>
 					<div className='col-start-1 col-end-3 row-span-2'>
 						<SMSTracking  stroke={`${theme==='dark'?'white':'black'}`}/>

@@ -147,7 +147,7 @@ export default function Layout({ children }) {
 							<button
 								onClick={handleDropdownOpen3}
 								type='button'
-								class='flex items-center w-full p-2 text-whitetransition duration-75 rounded-lg group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
+								class='flex items-center w-full mb-6 p-2 text-whitetransition duration-75 rounded-lg group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
 							>
 								<Image
 									className=''
@@ -205,7 +205,7 @@ export default function Layout({ children }) {
 								<button
 									onClick={handleDropdownOpen}
 									type='button'
-									class='flex items-center w-full p-2 mb-6 text-gray-900 transition duration-75 rounded-lg group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
+									class='flex items-center w-full p-2 mb-5 text-gray-900 transition duration-75 rounded-lg group hover:bg-secondary  dark:text-white dark:hover:bg-gray-700'
 									aria-controls='dropdown-example'
 									data-collapse-toggle='dropdown-example'
 								>
