@@ -40,12 +40,7 @@ const Page = () => {
             <div className='w-1/2 hidden md:flex justify-center items-center '>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 
-                <Image width={500} height={500}
-                    className='w-96  flex'
-                  
-                    src={`/assets/image /${theme==='dark'?'login-dark':'login'}.gif}`}
-                    alt='sign up logo'
-                />
+                  <Image className="mx-auto w-96  flex pt-5 pb-10 max-sm:pb-6" width={170} height={100} src={`/assets/image/${theme==='dark'?'login-dark':'login'}.gif`} alt="logo photo"/>
              
             </div>
             <div className='md:w-1/2 w-full'>
