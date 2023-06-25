@@ -6,6 +6,7 @@ import Link from "next/link"
 import React from "react"
 
 export default function Page() {
+	
 	return (
 		<div className='w-full p-5 mx-auto db-bg h-full dark:bg-primary'>
 			{/* header section */}
