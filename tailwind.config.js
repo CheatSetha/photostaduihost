@@ -7,6 +7,7 @@ module.exports = {
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
+        themeMode: "manual",
         extend: {
             animation:{
                 'bounce-slow': 'bounce 3s infinite',

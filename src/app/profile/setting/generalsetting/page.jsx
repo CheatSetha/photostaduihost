@@ -25,7 +25,7 @@ export default function Page() {
                 <SIdeSettingNav/>
             </div>
             <p className="mt-5 font-light dark:text-white mb-3">Choose your langauge</p>
-            <select className="select select-bordered w-full max-w-xs">
+            <select className="select bg-white dark:bg-slate-400 dark:text-white select-bordered w-full max-w-xs">
 
                 <option selected>Khmer</option>
                 <option className="">English</option>
