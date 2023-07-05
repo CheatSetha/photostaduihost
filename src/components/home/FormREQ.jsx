@@ -79,7 +79,7 @@ export default function FormREQ() {
     }
     return (
         <>
-        <form className="max-lg:w-[700px] w-11/12 mx-auto" onSubmit={handleSubmit}>
+        <form className="lg:w-[600px] w-11/12 mx-auto" onSubmit={handleSubmit}>
             <div className="mb-6">
                 <label
                     htmlFor="email"
