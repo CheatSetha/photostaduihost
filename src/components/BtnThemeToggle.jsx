@@ -12,6 +12,7 @@ export function BtnThemeToggle() {
     }, [])
     if (!mounted) return null
     const toggleTheme = (e) => {
+        console.log(theme, e.target.checked,"is current theme");
 
         //TODO check if input is checked set theme to dark else set theme to light
         if (e.target.checked) {

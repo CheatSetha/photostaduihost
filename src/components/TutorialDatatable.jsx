@@ -1,41 +1,43 @@
+"use client"
 import moment from "moment"
 import { useTheme } from "next-themes"
 import Image from "next/image"
 import React, { useEffect, useRef, useState } from "react"
-import { AiOutlineCloseCircle } from "react-icons/ai"
 import DataTable, { createTheme } from "react-data-table-component"
-import { AiOutlinePlusCircle } from "react-icons/ai"
 import DeleteIcon from "@/components/icon/DeleteIcon"
 import DateRangeSelector from "./datetimecomponent/DateRangeSelector"
+import { BASE_URL } from "@/app/api/BaseAPI"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import FormMdTtr from "./modal/FormModalTTR"
+import EditTTRForm from "./modal/EditTTrModal"
+import SeoModal from "./modal/SeoModal"
+
 
 export function TutorialDatatable() {
-	const editorRef = useRef()
-	const [editorLoaded, setEditorLoaded] = useState(false)
-	const { CKEditor, ClassicEditor } = editorRef.current || {}
-	useEffect(() => {
-		editorRef.current = {
-			CKEditor: require("@ckeditor/ckeditor5-react").CKEditor,
-			ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
-		}
-		setEditorLoaded(true)
-	}, [])
-	console.log("editorLoaded", editorLoaded)
-
-	//ckeditor section
-	const [editorData, setEditorData] = useState("")
-
-	const handleEditorChange = (newData) => {
-		setEditorData(newData)
-	}
-
 	const [products, setProducts] = useState([])
 	const [filterText, setFilterText] = useState("")
-
 	const [resetPaginationToggle, setResetPaginationToggle] = useState(false)
 	const filteredItems = products.filter(
 		(item) =>
-			item.title && item.title.toLowerCase().includes(filterText.toLowerCase())
+			item.name && item.name.toLowerCase().includes(filterText.toLowerCase())
 	)
+	const handleDeleteTutorial = (id) => {
+		let requestOptions = {
+			method: "DELETE",
+			redirect: "follow",
+		}
+		fetch(`${BASE_URL}tutorials/${id}`, requestOptions)
+			.then((res) => res.json())
+			.then((data) => {
+				toast.success("Tutorial deleted successfully")
+				fetch(`${BASE_URL}tutorials?page=1&limit=20&isDeleted=false`)
+					.then((res) => res.json())
+					.then((data) => setProducts(data.data.list))
+			})
+	}
+
+	
 
 	createTheme("light", {
 		text: {
@@ -77,7 +79,7 @@ export function TutorialDatatable() {
 		{
 			name: "Title",
 
-			selector: (row) => row.title,
+			selector: (row) => row.name,
 		},
 		{
 			name: "created at",
@@ -85,23 +87,20 @@ export function TutorialDatatable() {
 		},
 		{
 			name: "views",
-			selector: (row) => row.price,
+			selector: (row) => row.viewCount,
 		},
 
 		{
 			name: "Actions",
 			selector: (row) => (
 				<div>
-					<button className='rounded-main p-2.5  text-white  '>
-						<Image
-							src={"/assets/icons/edit.svg"}
-							width={23}
-							height={23}
-							alt='delete icon'
-							className='dark:invert'
-						/>
-					</button>
-					<button className='rounded-main p-2.5  text-white '>
+					{/* <UpdateTutorialModal id={row.id} /> */}
+					<SeoModal id={row.id}/>
+					<EditTTRForm id={row.id}/>
+					<button
+						onClick={() => handleDeleteTutorial(row.id)}
+						className='rounded-main p-2.5  text-white '
+					>
 						<DeleteIcon stroke={"red"} />
 					</button>
 				</div>
@@ -109,12 +108,14 @@ export function TutorialDatatable() {
 		},
 	]
 	useEffect(() => {
-		fetch("https://api.escuelajs.co/api/v1/products")
+		fetch(`${BASE_URL}tutorials?page=1&name=&isRead=false`)
 			.then((res) => res.json())
-			.then((data) => setProducts(data))
+			.then((data) => setProducts(data.data.list))
 
 		//
 	}, [])
+	console.log(products)
+
 	// safe
 	const subHeaderComponentMemo = React.useMemo(() => {
 		const handleClear = () => {
@@ -125,7 +126,7 @@ export function TutorialDatatable() {
 		}
 
 		return (
-			<div className='flex justify-between flex-wrap w-full p-0 '>
+			<div className='flex justify-between z-30 flex-wrap w-full p-0 '>
 				<form className='flex items-center'>
 					<label
 						htmlFor='simple-search'
@@ -161,89 +162,24 @@ export function TutorialDatatable() {
 						/>
 					</div>
 					<DateRangeSelector />
+					<ToastContainer
+						position='bottom-right'
+						autoClose={5000}
+						hideProgressBar={false}
+						newestOnTop={false}
+						closeOnClick
+						rtl={false}
+						pauseOnFocusLoss
+						draggable
+						pauseOnHover
+						theme='light'
+					/>
 				</form>
-				<button
-					// onClick={() => window.my_modal_4.showModal()}
-					onClick={() => window.my_modal_4.showModal()}
-					className='rounded-main px-5 max-sm:px-2 p-2.5 bg-black text-white  '
-				>
-					<AiOutlinePlusCircle className='inline text-2xl' />{" "}
-					<span className='max-sm:hidden'>Add new tutorial</span>
-				</button>
-				{/* You can open the modal using ID.showModal() method */}
-				{/* <button className="btn" onClick={()=>window.my_modal_4.showModal()}>open modal</button> */}
-				<dialog
-					id='my_modal_4'
-					className='modal '
-				>
-					<form
-						method='dialog'
-						className='modal-box dark:bg-secondary h-[100vh] overflow-auto w-11/12  max-w-5xl'
-					>
-						<button className='btn absolute  right-2 top-2  w-12 h-10 p-1 rounded-full text-center'>
-							<AiOutlineCloseCircle className='text-2xl' />
-						</button>
-						<h2 className='text-center text-2xl  text-light dark:text-white font-semibold'>
-							Create Tutorial
-						</h2>
-			
-						<form className='grid grid-cols-1 mt-10 md:grid-cols-2 gap-5'>
-							<div className=' w-full'>
-								<label
-									for='first_name'
-									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-								>
-									Title
-								</label>
-								<input
-									type='text'
-									id='first_name'
-									className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-									placeholder='John'
-									required
-								/>
-							</div>
-							<div className='  w-full'>
-								<label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
-									Thumbnail
-								</label>
-								<input
-									type='file'
-									className='file-input h-[45px]  file-input-bordered w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-									required
-								/>
-							</div>
-							<div className='md:mb-5 mb-2 md:col-span-2 w-full'>
-								<label
-									for='first_name'
-									className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-								>
-									Description
-								</label>
-								<textarea
-									id='message'
-									rows='4'
-									className='block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-									placeholder='Write your description here...'
-								></textarea>
-							</div>
-						</form>
-						<div className={"z-50 mt-3 rounded-main h-[100vh]"}>
-							{editorLoaded ? (
-								<CKEditor editor={ClassicEditor} />
-							) : (
-								" ckeditor is  laoding..."
-							)}
-							<div className="flex justify-end ">
-							<button type="button" className='rounded-main px-5 max-sm:px-2 p-2.5 bg-black text-white   mt-5'>Post Now</button>
-							</div>
-						</div>
-					</form>
-				</dialog>
-				{/* end of modal */}
+				<FormMdTtr />
 			</div>
 		)
-	}, [filterText, resetPaginationToggle, editorLoaded, editorRef])
+		
+	}, [filterText, resetPaginationToggle])
 	// safe to use
 	const customeStylesLight = {
 		headCells: {
@@ -292,21 +228,20 @@ export function TutorialDatatable() {
 				padding: 0,
 			},
 		},
-		subHeader:{
-			style:{
-				padding:0,
-				margin:0
-			}
-		}
+		subHeader: {
+			style: {
+				padding: 0,
+				margin: 0,
+			},
+		},
 	}
 	// chage theme of the table to dark and light
 	const themeColor = useTheme()
-	console.log(themeColor.theme)
+
 	return (
 		<>
 			<DataTable
 				style={{ backgroundColor: "black" }}
-				//  className="bg-light dark:bg-primary"
 				columns={columns}
 				data={filteredItems}
 				pagination

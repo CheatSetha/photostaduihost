@@ -1,58 +1,84 @@
 "use client"
-import React, { useMemo } from "react"
+import { useMemo } from "react";
 import DataTable, { createTheme } from "react-data-table-component"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import DateRangeSelector from "../datetimecomponent/DateRangeSelector"
 import { useTheme } from "next-themes";
+import React, { useState, useEffect } from "react";
+import moment from "moment";
+import { BASE_URL } from "@/app/api/BaseAPI";
 
 const CertificateDataComponent = () => {
-    const columns = [
-        {
-            name: "Number of Created Certificate",
-            selector: "certificate",
-            sortable: true,
-        },
-        {
-            name: "User",
-            selector: "user",
-            sortable: true,
-        },
-        {
-            name: "Date",
-            selector: "date",
-            sortable: true,
-        },
-    ]
-    // handle date rage picker with react-date-range
-   
-    
-    const data = [
-        { certificate: 10, user: "John Doe", date: "2021-10-01" },
-        { certificate: 2, user: "Jane Smith", date: "2021-10-02" },
-        { certificate: 3, user: "Bob Johnson", date: "2021-10-03" },
-    ]
-    
+	const [data, setData] = useState([]);
+
+
+	const fetchCertificateInfo=()=>{
+		var requestOptions = {
+			method: 'GET',
+			redirect: 'follow'
+		  };
+		  
+		  fetch(`${BASE_URL}statistics/certificate-download`, requestOptions)
+			.then(response => response.json())
+			.then(result => setData(result.data.list))
+
+			.catch(error => console.log('error', error));
+	}
+	useEffect(()=>{
+		fetchCertificateInfo()
+	},[])
+
+	const columns = [
+		{
+			name: "Certificate ID",
+			selector: row => row.certificateId,
+			sortable: true,
+		},
+		{
+			name: "Format",
+			selector:row => row.format,
+			sortable: true,
+		},
+		{
+			name: "compression size ",
+			selector:  row => row.compression,
+			sortable: true,
+		},
+		{
+			name: "Date",
+			selector:  row => moment(row.createdAt).format("YYYY-MM-DD"),
+			sortable: true,
+		},
+		{
+			name: "User",
+			selector:  row => row.userDownload.username,
+			sortable: true,
+		},
+	]
+	
+
 	const subHeaderComponentMemo = useMemo(() => {
-		
+
 		return (
+
 			<div className="absolute left-0 m-0 p-0">
 				<DateRangeSelector />
-		
 			</div>
+		
 		)
 	}, [])
-    const customeStylesLight = {
+	const customeStylesLight = {
 		subHeader: {
 			style: {
 				padding: 0,
-                margin:0,
+				margin: 0,
 			},
 		},
 		headCells: {
 			style: {
 				fontSize: "16px",
-				
+
 			},
 		},
 		header: {
@@ -60,7 +86,7 @@ const CertificateDataComponent = () => {
 				padding: 0,
 			},
 		},
-	
+
 		//set odd row background color to whitesmoke and even row to white
 		rows: {
 			style: {
@@ -77,10 +103,10 @@ const CertificateDataComponent = () => {
 		},
 	}
 	const customeStyleDark = {
-		subHeader:{
-			style:{
-				padding:0,
-				margin:0,
+		subHeader: {
+			style: {
+				padding: 0,
+				margin: 0,
 			}
 		},
 		headCells: {
@@ -91,9 +117,9 @@ const CertificateDataComponent = () => {
 		//set odd row background color to whitesmoke and even row to white
 		rows: {
 			style: {
-				backgroundColor: "#0b1437",
+				backgroundColor: "#111c44", 
 				"&:nth-child(odd)": {
-					backgroundColor: "#111c44",
+					backgroundColor: "#0b1437",
 				},
 			},
 		},
@@ -124,20 +150,20 @@ const CertificateDataComponent = () => {
 					color: "white",
 				},
 			},
-            paginationSelect:{
-                style:{
-                    color:'black'
-                }
-                
-            }
+			paginationSelect: {
+				style: {
+					color: 'black'
+				}
+
+			}
 		},
-		table:{
-			style:{
-				borderRadius:'16px'
+		table: {
+			style: {
+				borderRadius: '16px'
 			}
 		}
 	}
-    createTheme("light", {
+	createTheme("light", {
 		text: {
 			light: "#1b254b",
 			dark: "white",
@@ -162,7 +188,7 @@ const CertificateDataComponent = () => {
 		},
 		background: {
 			default: "#111c44",
-			
+
 		},
 		rows: {
 			style: {
@@ -172,29 +198,28 @@ const CertificateDataComponent = () => {
 				},
 			},
 		},
-		
+
 		// set body borderRadius to 16px
-		
+
 
 	})
-    const themeColor = useTheme()
-
+	const themeColor = useTheme()
+	
 	return (
 		<DataTable
 			columns={columns}
 			data={data}
-			title='Generated Certificate'
+			title="Generated Certificate Overview"
 			pagination
-			paginationPerPage={5}
-            subHeader
+			subHeader
 			subHeaderComponent={subHeaderComponentMemo}
 			paginationRowsPerPageOptions={[5, 10, 15]}
-            theme={themeColor.theme === "dark" ? "dark" : "light"}
-            customStyles={
-                themeColor.theme === "dark" ? customeStyleDark : customeStylesLight
-            }
+			theme={themeColor.theme === "dark" ? "dark" : "light"}
+			customStyles={
+				themeColor.theme === "dark" ? customeStyleDark : customeStylesLight
+			}
 		/>
 	)
 }
 
-export default CertificateDataComponent
+export default CertificateDataComponent;

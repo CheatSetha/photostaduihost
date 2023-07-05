@@ -1,33 +1,55 @@
 "use client"
 import DataTblReadedReq from "@/components/DataTblReadedReq"
 import FakeDataTable from "@/components/FakeDataTableListOfReq"
+import { fetchReadedRequestTutorial, fetchRequestTutorial, selectReadedRequestTutorial, selectRequestTutorialTotal } from "@/redux/features/requestTutorial/requestTutorialSlice"
+import { fetchUnreadReq, selectTotalUnread } from "@/redux/features/tutorial/reqTutorial/unReadTutorialSlice"
 import Link from "next/link"
-import React from "react"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 export default function Page() {
+
+	const totalReq = useSelector(selectRequestTutorialTotal)
+	const totalUnread = useSelector(selectTotalUnread)
+	const totalReaded = totalReq - totalUnread
+	const listOfReadedReq = useSelector(selectReadedRequestTutorial)
+	console.log(totalReaded, totalReq , totalUnread, listOfReadedReq);
+
+	const dispatch = useDispatch()
+	useEffect(()=>{
+		dispatch(fetchUnreadReq())
+		dispatch(fetchRequestTutorial())
+		dispatch(fetchReadedRequestTutorial())
+	},[])
 	return (
 		<div className='w-full p-5 mx-auto db-bg h-full dark:bg-primary'>
 			{/* header section */}
-			<div  className="db-bg dark:bg-primary sticky top-20 z-40">
-			<h1
-				className={"text-[32px] text-light dark:text-white font-semibold mb-5"}
-			>
-				Tutorial Management
-			</h1>
-			{/* breadcrumbs */}
-			<div className='text-sm mb-3 breadcrumbs'>
-			<ul className='font-extralight text-light dark:text-white'>
-					<li>
-						<Link href={"/admin/dashboard"}>Admin</Link>
-					</li>
-					<li>
-						<Link href={'/admin/dashboard/tutorialmanagement'}>Tutorial Management</Link>
-					</li>
-					<li>
-						<Link href={'/admin/dashboard/tutorialmanagement/readedrequest'}>Readed Request</Link>
-					</li>
-				</ul>
-			</div>
+			<div className='db-bg dark:bg-primary sticky top-20 z-40'>
+				<h1
+					className={
+						"text-[32px] text-light dark:text-white font-semibold mb-5"
+					}
+				>
+					Tutorial Management
+				</h1>
+				{/* breadcrumbs */}
+				<div className='text-sm mb-3 breadcrumbs'>
+					<ul className='font-extralight text-light dark:text-white'>
+						<li>
+							<Link href={"/admin/dashboard"}>Admin</Link>
+						</li>
+						<li>
+							<Link href={"/admin/dashboard/tutorialmanagement"}>
+								Tutorial Management
+							</Link>
+						</li>
+						<li>
+							<Link href={"/admin/dashboard/tutorialmanagement/readedrequest"}>
+								Readed Request
+							</Link>
+						</li>
+					</ul>
+				</div>
 			</div>
 			{/* end of header section */}
 
@@ -39,21 +61,21 @@ export default function Page() {
 							Total Requests
 						</h2>
 						<h2 className='font-black text-[40px] text-light dark:text-white '>
-							10
+							{totalReq}
 						</h2>
 					</div>
 					{/* box 2 */}
 					<div className='bg-white rounded-main shadow-sm dark:bg-secondary flex flex-col justify-center items-center h-[170px]'>
 						<h2 className='font-light text-light dark:text-white '>Readed</h2>
 						<h2 className='font-black text-[40px] text-light dark:text-white '>
-							10
+							{totalReaded}
 						</h2>
 					</div>
 					{/* box 3 */}
 					<div className='bg-white rounded-main shadow-sm dark:bg-secondary flex flex-col justify-center items-center h-[170px]'>
 						<h2 className='font-light text-light dark:text-white '>Unread</h2>
 						<h2 className='font-black text-[40px] text-light dark:text-white '>
-							0
+							{totalUnread}
 						</h2>
 					</div>
 				</div>
@@ -63,8 +85,8 @@ export default function Page() {
 					<span className='text-red-600'>done</span> &#41;{" "}
 				</h1>
 				{/* react data table component */}
-				<div className="h-screen">
-				<DataTblReadedReq />
+				<div className='h-screen'>
+					<DataTblReadedReq listOfReq={listOfReadedReq}/>
 				</div>
 			</main>
 		</div>

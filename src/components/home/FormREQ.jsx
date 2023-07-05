@@ -1,54 +1,85 @@
 'use client'
 
 import {BASE_URL} from "@/app/api/BaseAPI";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import {useState} from "react";
+//import toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function FormREQ() {
+    // data user
+    const { data: session } = useSession()
+    const emailUser = session?.user.email
+
+	const router = useRouter()
     const [submitting, setSubmitting] = useState(false);
     const handleSubmit = async (e) => {
+        if(emailUser==undefined) {
+           router.push("/login")
+        }
         await e.preventDefault();
         const email = e.target.email.value;
         const description = e.target.description.value;
         console.log('Email:', email);
         console.log('Description:', description);
         console.log("hello", setSubmitting);
-
         let myHeaders = new Headers()
+        //find user by email
         myHeaders.append("Content-Type", "application/json")
-
-        var raw = JSON.stringify({
-            userId: 12,
-            description,
-
-        })
-
-        let requestOptions = {
-            method: "POST",
+        let request = {
+            method: "GET",
             headers: myHeaders,
-            body: raw,
             redirect: "follow",
         }
-
         try {
+
+            const res = await fetch(BASE_URL +
+                "users/email?email=" + emailUser,
+                request
+            );
+            const dataUser = await res.json();
+            console.log("User infor", dataUser )
+
+                //sent request 
+            var raw = JSON.stringify({
+                userId:dataUser.data.id,
+                description,
+            })
+            console.log("it eaw:::",raw);
+            let requestOptions = {
+                method: "POST",
+                headers: myHeaders,
+                body: raw,
+                redirect: "follow",
+            }
             const response = await fetch(BASE_URL +
                 "request-tutorials",
                 requestOptions
             );
             const data = await response.json();
-            setSubmitting(true);
-            console.log(data);
+            toast.success('🦄 successfully', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                theme: "light",
+                });
+                e.target.reset();
+                setSubmitting(true);
             setTimeout(() => {
                 setSubmitting(false);
-                e.target.reset();
             }, 5000);
-
-
         } catch (error) {
             console.log("error", error);
         }
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <>
+        <form className="max-lg:w-[700px] w-11/12 mx-auto" onSubmit={handleSubmit}>
             <div className="mb-6">
                 <label
                     htmlFor="email"
@@ -85,5 +116,19 @@ export default function FormREQ() {
                 </button>
             </div>
         </form>
+        <ToastContainer
+            position="top-right"
+            autoClose={1000}
+            limit={3}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover={false}
+            theme="light"
+            />
+        </>
     )
 }

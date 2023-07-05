@@ -14,15 +14,12 @@ import {useTheme} from "next-themes";
 
 const MainFooter = () => {
     const pathName = usePathname()
-    console.log(pathName)
-
     // theme
     const {theme, setTheme} = useTheme()
 
     if (pathName.includes("/login")) {
         return null
     }
-
     if (pathName.includes("/signup")) return null
     if (pathName.includes('/dashboard')) return null
     if (pathName.includes('/dashboard/*')) return null
@@ -31,10 +28,8 @@ const MainFooter = () => {
             <footer>
                 <div
                     className='footer dark:bg-[#1e1e1e] dark:text-white place-items-center md:flex md:px-5 md:justify-between md:items-start text-center md:text-start py-10 bg-white text-base-content w-full xl:w-[1290px] mx-auto '>
-
                     <div className='place-items-center  md:place-items-start'>
                         <p className='font-bold text-black dark:text-white text-3xl mb-5 '>PhotoStad</p>
-
                         <Link href={"/"}>
                             {theme === "light" ? (
                                 <Image
@@ -87,12 +82,12 @@ const MainFooter = () => {
                         </a>
                         <a href={'tel: +885 812661909'} className='link link-hover'>
                             {" "}
-                            <BsFillTelephoneFill className='inline me-2'/> +885 812661909
+                            <BsFillTelephoneFill className='inline me-2'/> +855 81 266-190-9
                         </a>
                         <a  href={'tel: +885 812661909'} className='link link-hover'>
                             {" "}
-                            <GiRotaryPhone className='inline me-2'/>
-                            +885 9954245
+                            <GiRotaryPhone className='inline me-2 text-[20px]'/>
+                            +855 99 542-450
                         </a>
                     </div>
                 </div>
@@ -102,7 +97,7 @@ const MainFooter = () => {
                     className='flex flex-wrap justify-center  lg:justify-between py-4  max-md:flex-col w-[90%] xl:w-[1290px] mx-auto mt-1 dark:text-white font-bold'>
                     <p className={'text-[12px] max-md:mb-3 max-md:text-center md:text-xl'}>
                         {" "}
-                        <FaRegCopyright className='inline'/> 2023 PhotoSTAD | All Rights
+                        <FaRegCopyright className='inline '/> 2023 PhotoSTAD | All Rights
 
                     </p>
                     <div className='flex space-x-3 items-center cursor-pointer justify-center text-[30px]'>

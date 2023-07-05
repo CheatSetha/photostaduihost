@@ -71,7 +71,7 @@ export default function page() {
 								required
 							/>
 						</div>
-						<div className='md:mb-0 mb-7'>
+						{/* <div className='md:mb-0 mb-7'>
 							<label
 								for='first_name'
 								class='block mb-3 text-sm font-medium text-light dark:text-white'
@@ -82,7 +82,7 @@ export default function page() {
 								type='file'
 								className='file-input  w-full p2.5 h-[45px] border-gray-300 rounded-main focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 							/>
-						</div>
+						</div> */}
 					</div>
 					<div>
 						<div className='mb-7'>
@@ -115,7 +115,7 @@ export default function page() {
 								required
 							/>
 						</div>
-						<div className='mb-7'>
+						{/* <div className='mb-7'>
 							<label
 								for='first_name'
 								class='block mb-3 text-sm font-medium text-light dark:text-white'
@@ -129,7 +129,7 @@ export default function page() {
 								placeholder='photostad'
 								required
 							/>
-						</div>
+						</div> */}
 						<div className=''>
 							<label
 								for='first_name'

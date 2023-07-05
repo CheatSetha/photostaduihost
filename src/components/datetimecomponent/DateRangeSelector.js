@@ -51,40 +51,30 @@ const DateRangeSelector = ({ ranges, onChange, onSubmit, ...rest }) => {
 	return (
 		<div>
 			<button
-				className='me-5  '
+				className='p-2'
 				onClick={handleShow}
 			>
-				<BiFilterAlt className='text-[30px] inline dark:text-white' />{" "}
+				<BiFilterAlt className='text-[25px] inline dark:text-white' />{" "}
 				<span className='text-[15px] ml-3 dark:text-white'>Filter</span>
-				{/* {show&&<div className="h-100 inline mt-3 alert alert-transparent">
-                    <p className="my-auto d-inline">Start Date :{" "}
-                    {formatDateDisplay(selectedDateRange.startDate)}{" | "}
-                    End Date :{" "}
-                    {formatDateDisplay(selectedDateRange.endDate)}
-                    </p>
-                    <button className="mb-1 p-2.5 px-5 text-error" onClick={() => setShow(false)} variant="outline-success"> Close</button>
-               </div>} */}
 			</button>
 			<div
-				className={`shadow-sm rounded-main absolute left-20 bg-white z-40 ${
-					showDateRange ? " " : "hidden"
-				}`}
+				className={`shadow-sm rounded-main absolute left-20 bg-white z-40 ${showDateRange ? " " : "hidden"
+					}`}
 			>
 				<DateRangePicker
-				
-				className="dark:bg-secondary  .date-range-picker "
+					className="dark:bg-secondary  .date-range-picker "
 					onChange={handleSelect}
 					showSelectionPreview={true}
 					moveRangeOnFirstSelection={false}
-					months={2}
+					months={1}
 					ranges={[selectedDateRange]}
 					s
-					direction='horizontal'
+					direction='vertical'
+					style={{ width: '300px', height: '150px',fontSize: '10px'  }}
 				/>
-				<div className='text-right dark:bg-white position-relative rdr-buttons-position mt-2 mr-3 p-5'>
+				{/* <div className='text-right dark:bg-white position-relative rdr-buttons-position mt-2 mr-3 p-5'>
 					<button
 						className=' p-2 bg-black text-white rounded-main px-7 mr-2'
-						//   onClick={() => setShow(true)}
 						onClick={handleShowDateRange}
 					>
 						Done
@@ -95,7 +85,7 @@ const DateRangeSelector = ({ ranges, onChange, onSubmit, ...rest }) => {
 					>
 						Clear
 					</button>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	)
@@ -112,4 +102,4 @@ DateRangeSelector.propTypes = {
 	onSubmit: PropTypes.func,
 }
 
-export default DateRangeSelector
+export default DateRangeSelector;

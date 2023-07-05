@@ -1,10 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+const plugin1 = require('daisyui')
+const plugin2 = require('flowbite/plugin')
 module.exports = {
     darkMode: 'class',
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './node_modules/flowbite-react/**/*.js', './pages/**/*.{ts,tsx}', './public/**/*.html'
+        
+      
     ],
     theme: {
         themeMode: "manual",
@@ -42,5 +47,10 @@ module.exports = {
             
         },
     },
-    plugins: [require("daisyui")],
+    // plugins: [require("daisyui")],
+    plugins: [
+        plugin1,
+        plugin2,
+      ],
+
 }

@@ -12,7 +12,11 @@ import { darkMode } from "../../tailwind.config"
 import { RiMenu3Fill } from "react-icons/ri"
 import { BtnThemeToggle } from "@/components/BtnThemeToggle"
 
+import Head from "next/head"
+import { DarkThemeToggle, Flowbite } from "flowbite-react"
+
 const MainNavBar = () => {
+	
 	const [logIN, setLogIN] = useState(false)
 	// auth
 	const { data: session } = useSession()
@@ -37,6 +41,7 @@ const MainNavBar = () => {
 	if (pathName.includes("/dashboard")) return null
 	if (pathName.includes("/dashboard/*")) return null
 	return (
+
 		<div className='bg-white dark:bg-[#1e1e1e] sticky top-0 z-50  '>
 			<div className='navbar md:h-[80px] px-5 w-full xl:w-[1290px] mx-auto max-sm:px-5'>
 				<div className='navbar-start'>
@@ -61,11 +66,11 @@ const MainNavBar = () => {
 					</Link>
 				</div>
 				<div className='navbar-center hidden lg:flex'>
-					<ul className='menu menu-horizontal px-1 dark:text-white'>
+					<ul className='space-x-4    menu-horizontal px-1 dark:text-white'>
 						<li>
 							<Link
 								className={
-									"nav-item hover:bg-black hover:text-white hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
+									"nav-item py-2 text-black dark:text-white px-3 rounded-main    dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white  active:dark:bg-none active:bg-none "
 								}
 								href={"/ "}
 							>
@@ -76,7 +81,7 @@ const MainNavBar = () => {
 						<li>
 							<Link href="https://photostad-editor.vercel.app/watermark"
 								className={
-									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
+									"nav-item py-2 text-black dark:text-white px-3 rounded-main    dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white  active:dark:bg-none active:bg-none "
 								}
 							>
 								Watermark
@@ -86,7 +91,7 @@ const MainNavBar = () => {
 						<li>
 							<Link href={"https://photostad-editor.vercel.app/generatecertificate"}
 								className={
-									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
+									"nav-item py-2 text-black dark:text-white px-3 rounded-main    dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white  active:dark:bg-none active:bg-none "
 								}
 							>
 								Certificate
@@ -95,7 +100,7 @@ const MainNavBar = () => {
 						<li>
 							<Link
 								className={
-									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
+									"nav-item py-2 text-black dark:text-white px-3 rounded-main    dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white  active:dark:bg-none active:bg-none "
 								}
 								href={"/aboutus"}
 							>
@@ -104,9 +109,9 @@ const MainNavBar = () => {
 						</li>
 						<li>
 							<Link
-								className={
-									"nav-item hover:dark:text-black hover:dark:bg-white dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white focus:bg-none active:dark:bg-none active:bg-none "
-								}
+							className={
+								"nav-item py-2 text-black dark:text-white px-3 rounded-main    dark:bg-transparent dark:focus:bg-transparent  dark:active:bg-transparent dark:focus:text-white  active:dark:bg-none active:bg-none "
+							}
 								href={"/admin/login"}
 							>
 								Dashboard
@@ -117,6 +122,7 @@ const MainNavBar = () => {
 				<div className='navbar-end '>
 					<span className='mr-5'>
 						<BtnThemeToggle />
+	
 						{/*<ThemeSwitcher/>*/}
 					</span>
 					{session ? (
@@ -125,7 +131,7 @@ const MainNavBar = () => {
 								tabIndex={0}
 								className='w-10 h-10 btn-ghost btn-circle avatar'
 							>
-								<div className='md:w-10 md:h-10  w-7 h-7 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
+								<div className='md:w-10 md:h-10   w-7 h-7 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
 									{/* eslint-disable-next-line @next/next/no-img-element */}
 									<img
 										src={session.user.image}
@@ -135,7 +141,7 @@ const MainNavBar = () => {
 							</label>
 							<ul
 								tabIndex={0}
-								className='mt-3 dark:text-white dark:bg-slate-800 space-y-2  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52'
+								className='mt-3  dark:text-white dark:bg-slate-800 space-y-2  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52'
 							>
 								<li className='dark:hover:bg-slate-400 '>
 									<Link href={'/profile/setting'} className='justify-between'>{session.user.name}</Link>
@@ -200,7 +206,7 @@ const MainNavBar = () => {
 							</li>
 							<li className={"dark:hover:text-white"}>
 								<Link
-									className={"dark:hover:text-white"}
+									className={"dark:hover:text-white focus:dark:text-black"}
 									href={"/aboutus"}
 								>
 									About Us
@@ -250,6 +256,7 @@ const MainNavBar = () => {
 				</div>
 			</div>
 		</div>
+
 	)
 }
 

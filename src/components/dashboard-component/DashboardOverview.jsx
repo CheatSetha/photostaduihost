@@ -5,9 +5,26 @@ import BarChart from "../BarChart"
 import SMSTracking from "../icon/SMSTracking"
 import SmsNotification from "../icon/SmsNotification"
 import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 export default function DashboardOverview() {
-    const {theme}   = useTheme()
+	const { theme } = useTheme()
+	const [totalOfView, setTtalOfView] = useState(0);
+	const [activeUserThisMonth, setActiveUserThisMonth] = useState(0);
+	const [unreadRequestToday, setUnreadRequestToday] = useState(0);
+	const [newRequestThisMonth, setNewRequestThisMonth] = useState(0);
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await fetch("http://136.228.158.126:8002/api/v1/dashboard-overviews");
+			const responeData = await response.json();
+			const dataRs = await responeData.data;
+			setTtalOfView(dataRs.totalOfView);
+			setActiveUserThisMonth(dataRs.activeUserThisMonth);
+			setUnreadRequestToday(dataRs.unreadRequestToday);
+			setNewRequestThisMonth(dataRs.newRequestThisMonth);
+		};
+		fetchData();
+	}, []);
 	return (
 		<div className=' xl:h-screen h-full'>
 			<div className='grid grid-cols-1 lg:grid-cols-5 gap-4'>
@@ -21,7 +38,7 @@ export default function DashboardOverview() {
 						Tutorial Views
 					</p>
 					<h2 className={"text-[40px] font-black text-light dark:text-white"}>
-						96K
+						{totalOfView}
 					</h2>
 				</div>
 				{/*box 2*/}
@@ -32,16 +49,16 @@ export default function DashboardOverview() {
 				>
 					<div>
 						<p className={"font-extralight text-light dark:text-white"}>
-							Average Users
+							Active User
 						</p>
 						<h2
-									className={
-										"font-black text-[32px] text-center text-light dark:text-white"
-									}
-								>
-									7.9K
-								</h2>
-						
+							className={
+								"font-black text-[32px] text-center text-light dark:text-white"
+							}
+						>
+							{activeUserThisMonth}
+						</h2>
+
 					</div>
 					<div>
 						<Image
@@ -64,16 +81,16 @@ export default function DashboardOverview() {
 							Unread Requests
 						</p>
 						<h2
-									className={
-										"font-black text-[32px] text-center text-light dark:text-white"
-									}
-								>
-									7
-								</h2>
-						
+							className={
+								"font-black text-[32px] text-center text-light dark:text-white"
+							}
+						>
+							{unreadRequestToday}
+						</h2>
+
 					</div>
 					<div className='col-start-1 col-end-3 row-span-2'>
-						<SmsNotification  stroke={`${theme==='dark'?'white':'black'}`} />
+						<SmsNotification stroke={`${theme === 'dark' ? 'white' : 'black'}`} />
 					</div>
 				</div>
 
@@ -109,20 +126,20 @@ export default function DashboardOverview() {
 							New Requests
 						</p>
 						<h2
-									className={
-										"font-black text-[32px] text-center text-light dark:text-white"
-									}
-								>
-									70
-								</h2>
-						
+							className={
+								"font-black text-[32px] text-center text-light dark:text-white"
+							}
+						>
+							{newRequestThisMonth}
+						</h2>
+
 					</div>
 					<div className='col-start-1 col-end-3 row-span-2'>
-						<SMSTracking  stroke={`${theme==='dark'?'white':'black'}`}/>
+						<SMSTracking stroke={`${theme === 'dark' ? 'white' : 'black'}`} />
 					</div>
 				</div>
 				{/*box 6*/}
-       
+
 				<div
 					className={
 						"bg-white shadow-sm dark:bg-secondary col-span-1  lg:col-span-2  flex mainround h-[168px] justify-around items-center "
@@ -134,31 +151,31 @@ export default function DashboardOverview() {
 						</p>
 						<div className='flex flex-col '>
 							<div>
-                            <span className='text-start dark:text-white mr-5'>Google</span>
-							<progress
-								className='progress progress-info w-56'
-								value='10'
-								max='100'
-							></progress>{" "}
-                            </div>
-						
+								<span className='text-start dark:text-white mr-5'>Google</span>
+								<progress
+									className='progress progress-info w-56'
+									value='10'
+									max='100'
+								></progress>{" "}
+							</div>
+
 							<div>
-                            <span className='text-start dark:text-white  mr-3'>YouTube</span>
-							<progress
-								className='progress progress-error w-56'
-								value='40'
-								max='100'
-							></progress>{" "}
-                            </div>
-						
+								<span className='text-start dark:text-white  mr-2'>YouTube</span>
+								<progress
+									className='progress progress-error w-56'
+									value='40'
+									max='100'
+								></progress>{" "}
+							</div>
+
 							<div>
-                            <span className='text-start mr-10 dark:text-white'>Bing</span>
-							<progress
-								className='progress progress-primary w-56'
-								value='70'
-								max='100'
-							></progress>
-                            </div>
+								<span className='text-start mr-10 dark:text-white'>Bing</span>
+								<progress
+									className='progress progress-primary w-56'
+									value='70'
+									max='100'
+								></progress>
+							</div>
 						</div>
 					</div>
 				</div>

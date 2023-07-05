@@ -1,11 +1,13 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
-// import AOS from "aos";
-// import 'aos/dist/aos.js';
 import { useEffect, useState } from "react"
 import ButtonComponent from "@/components/button/ButtonComponent"
 import FormREQ from "@/components/home/FormREQ"
+ 
+
+//import animation  
+import { motion, Variants } from "framer-motion"
 
 const imageBanner = "/assets/image/home/home-banner.png"
 const imageWatermark = "/assets/image/home/watermark-photo.png"
@@ -21,6 +23,8 @@ const paddingSection = " pb-20 "
 let descriptionTutorials_two =
 	"	Start by designing a certificate template that includes relevant information such as the recipient name, the title of the certificate, the issuing organization name and logo, a description of the achievement, and any additional details you want to include. This template can be created using graphic design software or online certificate design tools."
 export default function Home() {
+
+
 	//description Tutorials
 	const [showMore, setShowMore] = useState(false)
 	const [showMore_one, setShowMore_one] = useState(false)
@@ -35,10 +39,11 @@ export default function Home() {
 	const handleToggle = () => {
 		setIsExpanded(!isExpanded)
 	}
+
 	return (
 		<main
 			className={
-				darkBACKGROUND + lightBackground + "flex flex-col items-center"
+				darkBACKGROUND + lightBackground + "flex  flex-col items-center"
 			}
 		>
 			<section
@@ -50,36 +55,67 @@ export default function Home() {
 				}
 			>
 				<div className='pt-16  ps-5 max-sm:pt-4'>
-					<h3 className='font-bold leading-relaxed tracking-wider  text-[#222] dark:text-[#ffff] pb-5 max-sm:hidden max-sm:pb-5'>
+					<motion.h3 className='font-bold hover:text-green-600 leading-relaxed tracking-wider  text-[#222] dark:text-[#ffff] pb-5 max-sm:hidden max-sm:pb-5'
+					  initial={{x:-30,opacity:0}}
+					  whileInView={{x:0,opacity:1}}
+                      viewport={{once:false,amount:0.1}}
+					  transition={{duration:1.3}}
+					>
 						GET YOUR DESIGNS NOW
-					</h3>
-					<h1 className='pb-5 font-extrabold text-5xl leading-11 max-sm:leading-normal text-[#222] dark:text-[#ffff] max-sm:text-[16px] max-sm:  max-sm:py-5 max-md:text-[30px] md:text-[40px] '>
+					</motion.h3>
+					<motion.h1 
+					   initial={{y:50,opacity:0}}
+					   whileInView={{y:0,opacity:1}}
+					   viewport={{once:false,amount:0.5}}
+					   transition={{duration:1.3,delay:0.8}}
+					   className='pb-5 font-extrabold text-5xl leading-11 max-sm:leading-normal text-[#222] dark:text-[#ffff] max-sm:text-[16px] max-sm:  max-sm:py-5 max-md:text-[30px] md:text-[40px] '>
 						Better Solution For Your Designs Watermark And Generate Certificate
-					</h1>
-					<p className='pb-5 text-[#222] dark:text-[#fff] max-sm:hidden max-md:hidden'>
+					</motion.h1>
+					<motion.p 
+					 initial={{y:50,opacity:0}}
+					 whileInView={{y:0,opacity:1}}
+					 viewport={{once:false,amount:0.5}}
+					 transition={{
+						duration:1.3,
+						delay:0.8}}
+					 className='pb-5 text-[#222] dark:text-[#fff] max-sm:hidden max-md:hidden'>
 						Level up your content with customizeable watermarks and create
 						stunning certificates effortlessly on our website.
-					</p>
-					<Link
-						href='#'
-						className=''
+					</motion.p>
+                    <motion.div
+					initial={{x:-50,opacity:0,scale:2}}
+					whileInView={{x:0,rotate:360 ,opacity:1,scale:1}}
+					viewport={{once:false,amount:0.5}}
+					transition={{duration:1.3,delay:0.8}}
 					>
-						<button
-							type='button'
-							class={
-								" focus:outline-none text-white bg-[#E85854] hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-[16px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 max-sm:text-[10px] max-sm:py-[5px] max-sm:px-[10px] max-sm:items-center max-sm:mb-0"
-							}
+						<Link
+							href='#'
+							className=''
 						>
-							<p className='mx-5'>Get Start</p>
-						</button>
-					</Link>
+							<button
+								type='button'
+								class={
+									" focus:outline-none text-white bg-[#E85854] hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-[16px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 max-sm:text-[10px] max-sm:py-[5px] max-sm:px-[10px] max-sm:items-center max-sm:mb-0"
+								}
+							>
+								<p className='mx-5'>Get Start</p>
+							</button>
+						</Link>
+					</motion.div>
 				</div>
-				<Image
+				<motion.img
 					alt='banner'
 					src={imageBanner}
 					width={586}
 					height={484}
 					className='lg:w-[586px] lg:h-[484px] top-5 md:w-[300px] max-sm:w-[200px] max-sm:h-[200px] max-md:h-[300px] max-md:w-[300px] md:h-[300px] md:pt-2 '
+					initial={{x:23,opacity:0,scale:0.5}}
+					whileInView={{x:0,
+						opacity:1,
+						scale:1
+					}}
+					viewport={{once:false,amount:0.5}}
+					transition={{duration:1.3,delay:0.8}}
 				/>
 			</section>
 			<section
@@ -91,11 +127,31 @@ export default function Home() {
 				}
 			>
 				<div className=' max-sm:p-0'>
-					<h1 className='text-center pb-14 text-5xl font-bold dark:text-white text-slate-950 max-sm:text-[24px]'>
+					<motion.h1 
+					 initial={{y:80,opacity:0,scale:0.5}}
+					 whileInView={{y:0,opacity:1,scale:1}}
+					 viewport={{once:false,amount:0.5}}
+					 transition={{duration:1.3,delay:2}}
+					className='text-center pb-14 text-5xl font-bold dark:text-white text-slate-950 max-sm:text-[24px]'>
 						Our Service
-					</h1>
+					</motion.h1>
 					<div className='flex flex-wrap  max-sm:flex-col justify-between'>
-						<div className='lg:w-[49%] w-[90%] p-10 watermark   flex max-sm:w-full max-sm:p-4 mb-[18px] md:w-full max-md:w-full '>
+						<motion.div 
+						 initial={{x:-20,opacity:0,scale:0.5}}
+						 whileInView={{
+							x:0,
+							rotate:[90,-90,180,0],
+							opacity:1,
+						    scale:1
+						}}
+						 viewport={{once:true,amount:0.5}}
+						 transition={{
+							type:"spring",
+							bounce:0.4,
+					        duration:5,
+							 
+						 }}
+						className='lg:w-[49%] w-[90%] p-10 watermark   flex max-sm:w-full max-sm:p-4 mb-[18px] md:w-full max-md:w-full '>
 							<div className=''>
 								<h2 className='text-3xl text-[#222] dark:text-white font-bold max-sm:text-[20px] '>
 									Watermark
@@ -119,9 +175,24 @@ export default function Home() {
 								height={200}
 								className='max-sm:w-[150px]  max-sm:h-[150px]  md:w-[250px] md:h-[250px] max-md:w-[250px] max-md:h-[250px]'
 							/>
-						</div>
+						</motion.div>
 
-						<div className='lg:w-[49%] w-[90%]  certificate p-10 flex max-sm:w-full max-sm:p-4 mb-[18px] md:w-full max-md:w-full  '>
+						<motion.div 
+						 initial={{x:20,opacity:0,scale:0.5}}
+						 whileInView={{
+							x:0,
+							rotate:[90,-90,180,0],
+							opacity:1,
+						    scale:1
+						}}
+						 viewport={{once:true,amount:0.5}}
+						 transition={{
+							type:"spring",
+							bounce:0.4,
+							duration:5,
+					 
+						 }}
+						className='lg:w-[49%] w-[90%]  certificate p-10 flex max-sm:w-full max-sm:p-4 mb-[18px] md:w-full max-md:w-full  '>
 							<div className=''>
 								<h2 className='text-3xl text-[#222] dark:text-white font-bold  max-sm:text-[20px]'>
 									Certificate
@@ -145,7 +216,7 @@ export default function Home() {
 								height={200}
 								className='max-sm:w-[150px]  max-sm:h-[150px] md:w-[250px] md:h-[250px] max-md:w-[250px] max-md:h-[250px]'
 							/>
-						</div>
+						</motion.div>
 					</div>
 				</div>
 			</section>
@@ -157,11 +228,32 @@ export default function Home() {
 					"xl:w-[1290px] max-sm:px-5 sm:mt-0 px-5"
 				}
 			>
-				<h1 className='text-center pb-14 text-5xl font-bold  text-slate-950 dark:text-[#fff] max-sm:text-[24px] '>
+				<motion.h1 
+					className='text-center pb-14 text-5xl font-bold  text-slate-950 dark:text-[#fff] max-sm:text-[24px] '
+					initial={{y:80,opacity:0,scale:0.5}}
+					whileInView={{y:0,opacity:1,scale:1}}
+					viewport={{once:false,amount:0.5}}
+					transition={{duration:1.3}}
+				>
 					Tutorials
-				</h1>
+				</motion.h1>
 				<div className='flex gap-5  justify-between pb-[20px] max-sm:flex-col'>
-					<div className='lg:w-1/2 w-[90%]  max-sm:w-full max-sm:h-[200px]'>
+					<motion.div 
+					 initial={{x:-20,opacity:0,scale:0.5}}
+					 whileInView={{
+						x:0,
+						rotate:[-50,50,-180,0],
+						opacity:1,
+						scale:1
+					}}
+					 viewport={{once:true,amount:0.5}}
+					 transition={{
+						type:"spring",
+						bounce:0.4,
+						duration:5,
+						 
+					 }}
+					className='lg:w-1/2 w-[90%]  max-sm:w-full max-sm:h-[200px]'>
 						<iframe
 							className='rounded-[26px] max-sm:mb-[18px]'
 							width='100%'
@@ -172,8 +264,23 @@ export default function Home() {
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
 							allowfullscreen
 						></iframe>
-					</div>
-					<div className='lg:w-1/2 w-[90%] p-10 bg-[#e9e8e8] rounded-[26px] max-sm:w-full max-sm:p-4'>
+					</motion.div>
+					<motion.div 
+					 initial={{x:-20,opacity:0,scale:0.5}}
+					 whileInView={{
+						x:0,
+						rotate:[-50,50,-180,0],
+						opacity:1,
+						scale:1
+					}}
+					 viewport={{once:true,amount:0.5}}
+					 transition={{
+						type:"spring",
+						bounce:0.4,
+						duration:5,
+						 
+					 }}
+					className='lg:w-1/2 w-[90%] p-10 bg-[#e9e8e8] rounded-[26px] max-sm:w-full max-sm:p-4'>
 						<h2 className='text-3xl text-[#111] font-bold max-sm:text-[20px]  max-sm:text-center max-sm:leading-[25px]'>
 							Add Custom Watermark to Photos in 4 minute
 						</h2>
@@ -198,10 +305,26 @@ export default function Home() {
 						>
 							{showMore_one ? "read less" : "read more..."}
 						</button>
-					</div>
+					</motion.div>
 				</div>
 				<div className='flex justify-between max-sm:flex-col-reverse'>
-					<div className='w-[49%] p-10 bg-[#e9e8e8]  rounded-[26px] max-sm:w-full max-sm:p-4'>
+					<motion.div 
+					className='w-[49%] p-10 bg-[#e9e8e8]  rounded-[26px] max-sm:w-full max-sm:p-4'
+					initial={{x:-20,opacity:0,scale:0.5}}
+					whileInView={{
+					   x:0,
+					   rotate:[-50,50,-180,0],
+					   opacity:1,
+					   scale:1
+				   }}
+					viewport={{once:true,amount:0.5}}
+					transition={{
+					   type:"spring",
+					   bounce:0.4,
+					   duration:5,
+						
+					}}
+					>
 						<h2 className='text-3xl text-[#111] font-bold max-sm:text-[20px]  max-sm:text-center max-sm:leading-[25px]'>
 							Generate Certificate in 7 minutes
 						</h2>
@@ -225,9 +348,25 @@ export default function Home() {
 						>
 							{showMore ? "read less" : "read more..."}
 						</button>
-					</div>
+					</motion.div>
 
-					<div className='w-[49%] max-sm:w-full'>
+					<motion.div 
+					className='w-[49%] max-sm:w-full'
+					initial={{x:-20,opacity:0,scale:0.5}}
+					whileInView={{
+					   x:0,
+					   rotate:[-50,50,-180,0],
+					   opacity:1,
+					   scale:1
+				   }}
+					viewport={{once:true,amount:0.5}}
+					transition={{
+					   type:"spring",
+					   bounce:0.4,
+					   duration:5,
+						
+					}}
+					>
 						<iframe
 							className='rounded-[26px] max-sm:mb-[18px] max-sm:h-[200px]'
 							width='100%'
@@ -238,7 +377,7 @@ export default function Home() {
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
 							allowfullscreen
 						></iframe>
-					</div>
+					</motion.div>
 				</div>
 			</section>
 			<section
@@ -246,9 +385,15 @@ export default function Home() {
 					paddingSection + lightBackground + darkBACKGROUND + "xl:w-[1290px] "
 				}
 			>
-				<h1 className='text-center pb-14 text-5xl font-bold  dark:text-white text-slate-950'>
+				<motion.h1 
+				className='text-center pb-14 text-5xl font-bold  dark:text-white text-slate-950'
+				initial={{y:80,opacity:0,scale:0.5}}
+					whileInView={{y:0,opacity:1,scale:1}}
+					viewport={{once:false,amount:0.5}}
+					transition={{duration:1.3}}
+				>
 					FAQ
-				</h1>
+				</motion.h1>
 				<div className='w-[90%] space-y-5 mx-auto '>
 					<div
 						tabIndex={0}
@@ -383,9 +528,15 @@ export default function Home() {
 			</section>
 			{/* tutuorial req */}
 			<section className='xl:w-[1290px] w-full px-5 mb-5  '>
-				<h1 className='text-center max-sm:text-[24px] pb-14  text-5xl font-bold dark:text-white text-slate-950'>
+				<motion.h1 
+				className='text-center max-sm:text-[24px] pb-14  text-5xl font-bold dark:text-white text-slate-950'
+				initial={{y:80,opacity:0,scale:0.5}}
+					whileInView={{y:0,opacity:1,scale:1}}
+					viewport={{once:false,amount:0.5}}
+					transition={{duration:1.3}}
+				>
 					Tutorials Request
-				</h1>
+				</motion.h1>
 				<FormREQ />
 			</section>
 		</main>

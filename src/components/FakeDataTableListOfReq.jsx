@@ -1,23 +1,31 @@
 "use client"
+import { BASE_URL } from "@/app/api/BaseAPI"
+import { deleteRequestTUtorial, fetchRequestTutorial, selectAllRequestTutorial, selectRequestTutorialTotal } from "@/redux/features/requestTutorial/requestTutorialSlice"
+import moment from "moment"
 import { useTheme } from "next-themes"
 import Image from "next/image"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import DataTable, { createTheme } from "react-data-table-component"
+import { useDispatch, useSelector } from "react-redux"
+import { ToastContainer, toast } from "react-toastify"
 
 const FakeDataTable = () => {
+	const dispatch = useDispatch()
+	const listOfReqTutorial = useSelector(selectAllRequestTutorial)
 	const themeColor = useTheme()
-	const [data, setData] = useState([
-		{ id: 1, message: "Request Tutorial 1", date: "2023-06-01", isRead: false },
-		{ id: 2, message: "Request Tutorial 2", date: "2023-06-02", isRead: false },
-		{ id: 3, message: "Request Tutorial 3", date: "2023-06-03", isRead: false },
-		{ id: 4, message: "Request Tutorial 4", date: "2023-06-04", isRead: false },
-		{ id: 5, message: "Request Tutorial 5", date: "2023-06-05", isRead: false },
-	])
+	const [data, setData] = useState([])
 
-	const handleDelete = (id) => {
-		const updatedData = data.filter((item) => item.id !== id)
-		setData(updatedData)
+	const callDP= async ()=>{
+		dispatch(fetchRequestTutorial())
+		setData(listOfReqTutorial)
+	
 	}
+
+	useEffect(()=>{
+		callDP()
+	},[])
+
+	
 
 	const handleMarkAsRead = (id) => {
 		const updatedData = data.map((item) => {
@@ -40,7 +48,6 @@ const FakeDataTable = () => {
 				"&:nth-child(odd)": {
 					backgroundColor: "black",
 				},
-				
 			},
 		},
 
@@ -111,39 +118,46 @@ const FakeDataTable = () => {
 	const columns = [
 		{
 			name: "Request Messages",
-			selector: "message",
+			selector: (row) => row.description,
 			sortable: true,
 		},
 		{
 			name: "Date",
-			selector: "date",
+			selector: (row)=> moment(row.createdAt).format("d/mm/yyyy"),
 			sortable: true,
 		},
 		{
 			name: "Actions",
-            width:"300px",
+			width: "300px",
 			cell: (row) => (
 				<>
-					<button className="flex border-none items-center rounded-main h-[40px] mr-3 space-x-2 text-white p-2 px-3 bg-[#E85854] justify-center" onClick={() => handleDelete(row.id)}>
+					<button
+						className='flex border-none items-center rounded-main h-[40px] mr-3 space-x-2 text-white p-2 px-3 bg-[#E85854] justify-center'
+						onClick={()=>dispatch(deleteRequestTUtorial(row.uuid))}
+					>
 						<Image
 							src={"/assets/icons/trush-square.svg"}
 							width={23}
 							height={23}
 							alt='delete icon'
-                          
+
 						/>
-						<span className="max-sm:hidden">Delete</span>
+						<span className='max-sm:hidden'>Delete </span>
 					</button>
+					<ToastContainer />
 					{!row.isRead && (
-						<button className="flex  bg-secondary text-white rounded-main space-x-2 items-center p-2 px-3 btn-outline justify-center h-[40px]" onClick={() => handleMarkAsRead(row.id)}>
-                            <Image
-							src={"/assets/icons/chart-success.svg"}
-							width={22}
-							height={22}
-							alt='delete icon'
-							className=' invert'
-						/>
-							<span className="max-sm:hidden">Mark as Read</span>
+						<button
+							className='flex  bg-secondary text-white rounded-main space-x-2 items-center p-2 px-3 btn-outline justify-center h-[40px]'
+							onClick={() => handleMarkAsRead(row.uuid)}
+						>
+							<Image
+								src={"/assets/icons/chart-success.svg"}
+								width={22}
+								height={22}
+								alt='delete icon'
+								className=' invert'
+							/>
+							<span className='max-sm:hidden'>Mark as Read</span>
 						</button>
 					)}
 				</>
@@ -155,16 +169,16 @@ const FakeDataTable = () => {
 	]
 
 	return (
-		<div className="h-screen">
+		<div className='h-screen'>
 			<DataTable
-			columns={columns}
-			data={data}
-            pagination
-			theme={themeColor.theme === "dark" ? "dark" : "light"}
-			customStyles={
-				themeColor.theme === "dark" ? customeStyleDark : customeStylesLight
-			}
-		/>
+				columns={columns}
+				data={data}
+				pagination
+				theme={themeColor.theme === "dark" ? "dark" : "light"}
+				customStyles={
+					themeColor.theme === "dark" ? customeStyleDark : customeStylesLight
+				}
+			/>
 		</div>
 	)
 }

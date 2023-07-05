@@ -1,7 +1,5 @@
 "use client"
-import FakeDataTable from "@/components/FakeDataTableListOfReq"
 import CertificateDataComponent from "@/components/datatable/CertificateDTTable"
-import WatermarkDataComponent from "@/components/datatable/WatermarkDTtable"
 import Link from "next/link"
 import React from "react"
 
@@ -40,6 +38,7 @@ export default function Page() {
 			{/* end of header section */}
 
 			<main className="h-screen">
+				
 
 				<CertificateDataComponent />
 			

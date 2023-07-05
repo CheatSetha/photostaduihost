@@ -1,6 +1,5 @@
 "use client"
-import Aos from "aos"
-import "aos/dist/aos.css"
+
 import React, { useEffect } from "react"
 import { BsFacebook, BsGithub } from "react-icons/bs"
 import { TbWorld } from "react-icons/tb"

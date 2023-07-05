@@ -3,37 +3,34 @@
 @tailwind utilities;
 
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
 /* for dark theme */
-[data-theme="light"]
-    {
+[data-theme="light"] {
     background-color: white;
 }
 
 [data-theme="dark"] {
-   background-color: black;
+    background-color: black;
 }
 
 
@@ -44,10 +41,6 @@ body {
     background-color: whitesmoke;
 }
 
-[data-theme="dark"] body {
-    color: #fff;
-    background-color: #1e1e1e;
-}
 
 .btn-util {
     background-color: #E85854 !important;
@@ -124,11 +117,11 @@ body {
     transition: .5s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #522ba7;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(100%);
     box-shadow: inset 15px -4px 0px 15px #fff000;
 }
@@ -137,16 +130,19 @@ input:checked + .slider:before {
 
 
 /* ============ | Dashboard |=============== */
-.db-bg{
+.db-bg {
     background-color: #f5f8fe;
 }
-.bg-dark{
+
+.bg-dark {
     background-color: #0b1437;
 }
-.box-dark{
+
+.box-dark {
     background-color: #111c44;
 }
-.text-color{
+
+.text-color {
     color: #1b254b;
 }
 
@@ -161,7 +157,6 @@ input:checked + .slider:before {
 } */
 .nav-item:focus {
     background-color: transparent !important;
-
 }
 
 /* reset password email input */
@@ -171,4 +166,62 @@ input:checked + .slider:before {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  }
+}
+
+
+/*  nav */
+.nav-item:focus {
+    background-color: transparent !important;
+
+
+}
+
+/* .nav-item:hover {
+    background-color: white !important;
+
+} */
+
+.nav-item:active {
+    background-color: transparent !important;
+
+}
+
+.aside-item:focus {
+    background-color: whitesmoke !important;
+    color: white !important;
+
+}
+
+.aside-item:hover {
+    color: white !important;
+    background-color: white !important;
+    border-radius: 16px !important;
+ 
+
+}
+
+.aside-item:active {
+    background-color: whitesmoke !important;
+    color: black !important;
+
+}
+.manu:hover{
+    color: black !important;
+    background-color: white !important;
+   
+} 
+.manu:active{
+    color: white !important;
+    background: transparent !important;
+
+}
+.manu:focus{
+    color: white !important;
+    background: transparent !important;
+    
+}
+summer:hover{
+    color: black !important;
+    background-color: white !important;
+   
+}

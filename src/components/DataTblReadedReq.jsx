@@ -4,15 +4,10 @@ import Image from "next/image"
 import React, {useState} from "react"
 import DataTable, {createTheme} from "react-data-table-component"
 
-const DataTblReadedReq = () => {
+const DataTblReadedReq = ({listOfReq}) => {
     const themeColor = useTheme()
-    const [data, setData] = useState([
-        {id: 1, message: "Request Tutorial 1", date: "2023-06-01", isRead: false},
-        {id: 2, message: "Request Tutorial 2", date: "2023-06-02", isRead: false},
-        {id: 3, message: "Request Tutorial 3", date: "2023-06-03", isRead: false},
-        {id: 4, message: "Request Tutorial 4", date: "2023-06-04", isRead: false},
-        {id: 5, message: "Request Tutorial 5", date: "2023-06-05", isRead: false},
-    ])
+
+    const [data, setData] = useState(listOfReq)
 
     const handleDelete = (id) => {
         const updatedData = data.filter((item) => item.id !== id)

@@ -55,11 +55,11 @@ const BarChart = () => {
     })
   }, [])
   return (
- 
-      <div className='  relative lg:w-[75%] md:w-[100%]  max-sm:w-[100%]  p-4 rounded-main bg-white dark:bg-secondary'>
+    <>
+      <div className=' md:col-span-2 relative p-4 border h-full lg:h-[280px] w-full bg-white'>
         <Bar data={chartData} options={chartOptions} />
       </div>
-
+    </>
   );
 };
 export default BarChart;
