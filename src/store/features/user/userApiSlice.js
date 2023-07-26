@@ -13,8 +13,8 @@ export const userApiSlice = apiSlice.injectEndpoints({
       providesTags: ["User"], // provideTags are used for updating cache
     }),
     getUserByEmail: builder.query({
-      query: ({userEmail}) => `/users/email?email=${userEmail}`,
-    }), 
+      query: ({ userEmail }) => `/users/email?email=${userEmail}`,
+    }),
     getUserById: builder.query({
       query: (id) => `/users/${id}`,
       keepUnusedDataFor: 5, // keep unused data in cache for 5 seconds
@@ -44,39 +44,41 @@ export const userApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: ["User"],
     }),
     updatePasswordById: builder.mutation({
-      query: ({id,data}) => ({
-      url: `users/${id}/change-password`,
-      method: "PUT",
-      body:data
-    }),
-    
-    updateProfile: builder.mutation({
-      query: ({uuid,data}) => ({
-        url: `users/${uuid}/update-profile-client`,
+      query: ({ id, data }) => ({
+        url: `users/${id}/change-password`,
         method: "PUT",
-        body: data
+        body: data,
       }),
-      invalidatesTags: ["User"],
-    }),
+
+      updateProfile: builder.mutation({
+        query: ({ uuid, data }) => ({
+          url: `users/${uuid}/update-profile-client`,
+          method: "PUT",
+          body: data,
+        }),
+        invalidatesTags: ["User"],
+      }),
     }),
     updateProfile: builder.mutation({
-      query: ({uuid,data}) => ({
+      query: ({ uuid, data }) => ({
         url: `users/${uuid}/update-profile-client`,
         method: "PUT",
-        body: data
+        body: data,
       }),
     }),
     updateInformationClient: builder.mutation({
-      query: ({uuid,data}) => ({
+      query: ({ uuid, data }) => ({
         url: `users/${uuid}/update-information-client`,
         method: "PUT",
-        body: data
+        body: data,
       }),
       invalidatesTags: ["User"],
     }),
 
-
-    
+    // find user by email
+    isUserExist: builder.query({
+      query: ({ email }) => `/auth/email/${email}`,
+    }),
   }),
 });
 
@@ -91,6 +93,6 @@ export const {
   useGetUserByEmailQuery,
   useUpdatePasswordByIdMutation,
   useUpdateProfileMutation,
-  useUpdateInformationClientMutation
-  
+  useUpdateInformationClientMutation,
+  useIsUserExistQuery,
 } = userApiSlice;

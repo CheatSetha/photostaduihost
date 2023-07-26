@@ -1,5 +1,5 @@
-'use client'
-import React, { useState } from "react";
+"use client";
+import React, { useCallback, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FcGoogle } from "react-icons/fc";
@@ -9,10 +9,17 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { useLoginMutation } from "@/store/features/auth/authApiSlice";
+import {
+  useLoginMutation,
+  useRegisterGoogleMutation,
+} from "@/store/features/auth/authApiSlice";
 import { setCredentials } from "@/store/features/auth/authSlice";
-import { useGetUserQuery } from "@/store/features/user/userApiSlice";
+import {
+  useGetUserQuery,
+  useIsUserExistQuery,
+} from "@/store/features/user/userApiSlice";
 import { HiEye, HiEyeOff } from "react-icons/hi";
+import { BASE_URL } from "@/lib/baseUrl";
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -30,10 +37,16 @@ const Page = () => {
   const { theme } = useTheme();
   const router = useRouter();
   const dispatch = useDispatch();
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, isSuccess }] = useLoginMutation();
+  const [registerGoogle, { isLoading: registering, isSuccess: registered }] =
+    useRegisterGoogleMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
+  const { data: session } = useSession();
+
+  const [email, setEmail] = useState("");
+  const { data: isUserExist } = useIsUserExistQuery(email);
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -59,8 +72,197 @@ const Page = () => {
     }
   };
 
+  const handleGoogleAuth = useCallback(async () => {
+    console.log(session, "google credential");
+
+    try {
+      const response = await fetch(
+        `${BASE_URL}/auth/email/${session.user.email}`
+      );
+      const data = await response.json();
+      console.log(data, "test data");
+
+      if (data?.data) {
+        console.log("you were born to be my princess");
+        const email = session?.user?.email;
+        const password =
+          session?.user?.email + "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";
+
+        console.log(email, "email");
+        console.log(password, "password");
+
+        try {
+          const { data } = await login({ email, password }).unwrap();
+          console.log("data user login =>", data);
+          // return token and assign token to setCredentials
+          dispatch(setCredentials(data));
+          // alert("login with google success");
+
+          router.push("/");
+        } catch (error) {
+          console.log("error login", error);
+
+          if (error.data && error.data.code === 401) {
+            setLoginError("Invalid email or password");
+          } else {
+            setLoginError("An error occurred during login");
+          }
+        }
+      } else {
+        console.log("you were born to be my enemy");
+        const header = new Headers();
+        header.append("Content-Type", "application/json");
+        let raw = JSON.stringify({
+          email: session?.user?.email,
+        });
+        let requestOptions = {
+          method: "POST",
+          headers: header,
+          body: raw,
+          redirect: "follow",
+        };
+
+        const registerResponse = await fetch(
+          `${BASE_URL}/auth/register-with-google`,
+          requestOptions
+        );
+        const registerData = await registerResponse.json();
+        console.log(registerData, "register with google");
+        console.log(registerData?.code, "status code");
+
+        if (registerData?.code === 200) {
+          const email = session?.user?.email;
+          const password =
+            session?.user?.email + "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";
+          console.log(email, "email");
+          console.log(password, "password");
+
+          try {
+            const { data } = await login({ email, password }).unwrap();
+            console.log("data user login =>", data);
+            // return token and assign token to setCredentials
+            dispatch(setCredentials(data));
+            // alert("login with google success");
+
+            router.push("/");
+          } catch (error) {
+            console.log("error login", error);
+
+            if (error.data && error.data.code === 401) {
+              setLoginError("Invalid email or password");
+            } else {
+              setLoginError("An error occurred during login");
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }, [session]);
+
+  //  make it work only fisrt time
+  // const handleGoogleAuth = useCallback(() => {
+  //   console.log(session, "google credentail");
+  //   const nameNoSpace = session?.user?.name?.replace(/\s/g, "");
+  //   console.log(nameNoSpace, "name no space");
+
+  //   // check credenail
+  //   fetch(`${BASE_URL}/auth/email/${session?.data?.user?.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data, "test data");
+
+  //       if (data?.data) {
+  //         console.log("you born to be my princess");
+  //       } else {
+  //         console.log("you born to be my enemy");
+  //         const header = new Headers();
+  //         header.append("Content-Type", "application/json");
+  //         let raw = JSON.stringify({
+  //           email: session?.user?.email,
+  //         });
+  //         let requestOptions = {
+  //           method: "POST",
+  //           headers: header,
+  //           body: raw,
+  //           redirect: "follow",
+  //         };
+  //         fetch(`${BASE_URL}/auth/register-with-google`, requestOptions)
+  //           .then((res) => res.json())
+  //           .then((data) => {
+  //             console.log(data, "resgiser with google");
+  //             console.log(data?.code, "status code");
+  //             if (data?.code === 200) {
+  //               const email = session?.user?.email;
+  //               const password =
+  //                 session?.user?.email + "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";
+  //               console.log(email, "email");
+  //               console.log(password, "password");
+  //               try {
+  //                 const { data } = login({ email, password }).unwrap();
+  //                 console.log("data user login =>", data);
+  //                 // dispatch(setCredentials(data));
+
+  //                 // router.push("/");
+  //               } catch (error) {
+  //                 console.log("error login", error);
+
+  //                 if (error.data && error.data.code === 401) {
+  //                   setLoginError("Invalid email or password");
+  //                 } else {
+  //                   setLoginError("An error occurred during login");
+  //                 }
+  //               }
+  //             }
+  //           });
+  //       }
+  //     },[]);
+
+  // if (isUserExist) {
+  //   // alert("user already exists");
+  //   try {
+  //     const { data } = login({
+  //       email: session.user.email,
+  //       password: session.user.name + "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",
+  //     }).unwrap();
+  //     console.log(
+  //       data,
+  //       "data i lvoe you 30000000000000000000000000000000000000000000000000000000000"
+  //     );
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // } else {
+  //   console.log("user not exist in this world ");
+  //   try {
+  //     const { data } = registerGoogle(session.user.email).unwrap();
+  //     console.log(data, "data when register with google");
+  //     console.log(
+  //       data,
+  //       "Data i love you 90902999999999999999999999999999999999999999999999"
+  //     );
+  //     if (data) {
+  //       const { data: user } = login({
+  //         email: session.user.email,
+  //         password: session.user.name + "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",
+  //       }).unwrap();
+  //       console.log(user, "data when login with google");
+  //       alert("login with google success");
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+  // }, [session]);
+  useEffect(() => {
+    if (session) {
+      handleGoogleAuth();
+    }
+  }, [session]);
+
   const handleGoogleSignIn = async () => {
-    await signIn("google", { callbackUrl: "/" });
+    await signIn("google");
   };
 
   return (
@@ -76,23 +278,20 @@ const Page = () => {
         />
       </div>
       <div className="md:w-1/2 w-full">
-      <div className="form-container w-[90%]  xl:w-[600px] mx-auto  border p-10 rounded-[16px]">
-
-        <Formik
-          initialValues={initialValues}
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}
-        >
-          {({ errors, touched }) => (
-            <Form>
+        <div className="form-container w-[90%]  xl:w-[600px] mx-auto  border p-10 rounded-[16px]">
+          <Formik
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchema}
+          >
+            {({ errors, touched }) => (
+              <Form>
                 <Image
                   className="mx-auto pt-5 pb-10 max-sm:pb-6"
                   width={170}
                   height={100}
                   src={`/assets/image/${
-                    theme === "dark"
-                      ? "mainlogov2"
-                      : "mainlogo-blackv2"
+                    theme === "dark" ? "mainlogov2" : "mainlogo-blackv2"
                   }.png`}
                   alt="logo photo"
                 />
@@ -180,25 +379,24 @@ const Page = () => {
                     )}
                   </button>
                 </div>
-            
-            </Form>
-          )}
-        </Formik>
-       
-        <div className="mt-6">
-          <button
-            onClick={handleGoogleSignIn}
-            className="cursor-pointer p-2.5 bg-slate-100 dark:bg-black  dark:text-white  border w-full rounded-[16px]"
-          >
-            <FcGoogle className="inline" /> Log in with Google
-          </button>
-          <small className="justify-end ml-3 flex mt-10 dark:text-white">
-            Forgot password?{" "}
-            <span className="text-[#E85854] ps-2 cursor-pointer">
-              <Link href={"/sendemail"}>Click here</Link>{" "}
-            </span>{" "}
-          </small>
-        </div>
+              </Form>
+            )}
+          </Formik>
+
+          <div className="mt-6">
+            <button
+              onClick={handleGoogleSignIn}
+              className="cursor-pointer p-2.5 bg-slate-100 dark:bg-black  dark:text-white  border w-full rounded-[16px]"
+            >
+              <FcGoogle className="inline" /> Log in with Google
+            </button>
+            <small className="justify-end ml-3 flex mt-10 dark:text-white">
+              Forgot password?{" "}
+              <span className="text-[#E85854] ps-2 cursor-pointer">
+                <Link href={"/sendemail"}>Click here</Link>{" "}
+              </span>{" "}
+            </small>
+          </div>
         </div>
       </div>
     </div>

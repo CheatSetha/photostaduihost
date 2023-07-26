@@ -54,7 +54,7 @@ const NavBar = () => {
   }
   if (pathName.includes("/signup")) return null;
   if (pathName.includes("/otp-verification")) return null;
-  if(pathName.includes("/sendmail")) return null;
+  if (pathName.includes("/sendmail")) return null;
 
   // end of disable in auth part
   if (pathName.includes("/dashboard")) return null;
@@ -114,16 +114,7 @@ const NavBar = () => {
         </div>
         <div className="navbar-end gap-3">
           <BtnThemeToggle />
-          {/*}  <Link href={'/login'}>
-         <button className="rounded-main btn bg-red-500 text-white hidden lg:block">
-            log in
-          </button>
-         </Link>
-         <Link href={'/signup'}>
-         <button className="rounded-main btn bg-red-500 text-white hidden lg:block">
-            Sign Up
-          </button>
-         </Link> */}
+      
           {user || session ? (
             <>
               <div class="dropdown">
@@ -134,12 +125,9 @@ const NavBar = () => {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    // src={
-                    //   userImageUrl
-                    //     ? userImageUrl
-                    //     : "https://photostad-api.istad.co/files/photo-user.jpg"
+              
                     // }
-                    src={userImageUrl?userImageUrl:"https://photostad-api.istad.co/files/photo-user.jpg"}
+                    src={session ? session?.user?.image : userImageUrl}
                     alt={"profile picture"}
                   />
                 </div>
@@ -148,12 +136,13 @@ const NavBar = () => {
                     href={"/profile/setting"}
                     className="dropdown-item text-sm hover:text-black"
                   >
-                    {userName}
+                    {/* {userName} */}
+                    {session ? session?.user?.name : userName}
                   </Link>
                   <Link
                     tabindex="-1"
                     href={"/profile/setting"}
-                    className="dropdown-item text-sm hover:text-black" 
+                    className="dropdown-item text-sm hover:text-black"
                   >
                     Settings
                   </Link>
@@ -195,17 +184,32 @@ const NavBar = () => {
             <LiaBarsSolid className="text-black bg-white dark:bg-slate-900 dark:text-white text-xl " />
           </label>
           <div className="dropdown-menu dropdown-menu-bottom-left text-black bg-white dark:bg-slate-900 dark:text-white">
-            <Link href={"/profilesetting"} className="dropdown-item text-sm hover:text-black">
+            <Link
+              href={"/profilesetting"}
+              className="dropdown-item text-sm hover:text-black"
+            >
               Profile
             </Link>
 
-            <Link href={"/"} tabindex="-1" className="dropdown-item text-sm hover:text-black">
+            <Link
+              href={"/"}
+              tabindex="-1"
+              className="dropdown-item text-sm hover:text-black"
+            >
               Home
             </Link>
-            <Link href={"https://photostad-editor.vercel.app/watermark"} tabindex="-1" className="dropdown-item text-sm hover:text-black">
+            <Link
+              href={"https://photostad-editor.vercel.app/watermark"}
+              tabindex="-1"
+              className="dropdown-item text-sm hover:text-black"
+            >
               Watermark
             </Link>
-            <Link href={"https://photostad-editor.vercel.app/generatecertificate"} tabindex="-1" className="dropdown-item text-sm hover:text-black">
+            <Link
+              href={"https://photostad-editor.vercel.app/generatecertificate"}
+              tabindex="-1"
+              className="dropdown-item text-sm hover:text-black"
+            >
               Certificate
             </Link>
             <Link

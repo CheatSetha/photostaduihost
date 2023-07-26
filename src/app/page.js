@@ -12,6 +12,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setRoles } from "@/store/features/role/roleSlice";
 import { useSession } from "next-auth/react";
 import TutorialContent from "@/components/tutorialcontents";
+import axios from "axios";
+import { BASE_URL } from "@/lib/baseUrl";
+import { data } from "autoprefixer";
+import {
+  useLoginMutation,
+  useRegisterGoogleMutation,
+} from "@/store/features/auth/authApiSlice";
 
 const imageBanner = "/assets/image/home/home-banner.png";
 const imageWatermark = "/assets/image/home/watermark-photo.png";
@@ -44,6 +51,98 @@ export default function Home() {
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
   };
+  const [login, { isLoading, isSuccess }] = useLoginMutation();
+  const [registerGoogle, { isLoading: registering, isSuccess: registered }] =
+    useRegisterGoogleMutation();
+
+  async function handleGoogleLogin(session) {
+    const isSuccess = session && session.user;
+    if (!isSuccess) {
+      return;
+    }
+
+    const isUserExist = await handleCheckEmail(session.user.email);
+    if (isUserExist) {
+      alert("user already exists");
+      try {
+        const { data } = await login({
+          email: session.user.email,
+          password: session.user.name + "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",
+        }).unwrap();
+        console.log(data, "data when login with google setha");
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      alert("user not exist");
+      try {
+        const { data } = await registerGoogle(session.user.email).unwrap();
+        console.log(data, "data when register with google");
+
+        if (data) {
+          const { data: user } = await login({
+            email: session.user.email,
+            password: session.user.name + "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",
+          }).unwrap();
+          console.log(user, "data when login with google");
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+  useEffect(() => {
+    if (session?.status === "authenticsated") {
+      fetch(`${BASE_URL}/auth/email/${session?.data?.user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data, "test data");
+          if (data?.data) {
+            try {
+              const { data } = login({
+                email: session?.data?.user?.email,
+                password:
+                  session?.data?.user?.name +
+                  "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",
+              }).unwrap();
+              console.log(data, "data when login with google setha");
+            } catch (err) {
+              console.log(err);
+            }
+          } else {
+            try {
+              const { data } = registerGoogle(
+                session?.data?.user.email
+              ).unwrap();
+              console.log(data, "data when register with google");
+
+              if (data) {
+                try {
+                  const { data } = login({
+                    email: session?.data?.user?.email,
+                    password:
+                      session?.data?.user?.name +
+                      "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",
+                  }).unwrap();
+                  console.log(data, "data when login with google setha");
+                } catch (err) {
+                  console.log(err);
+                }
+                console.log(user, "data when login with google");
+              }
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        });
+    }
+  }, [session]);
+
+  useEffect(() => {
+    if (session?.data) {
+      handleGoogleLogin(session);
+    }
+  }, [session]);
 
   return (
     <main
